@@ -1,0 +1,156 @@
+have_func: checking for mysql_ssl_set()... -------------------- yes
+
+"gcc -o conftest -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/x86_64-linux -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/ruby/backward -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0 -I.    -I/usr/include/mysql -DBIG_JOINS=1  -fno-strict-aliasing   -g -DNDEBUG  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -Wl,-R/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -L. -fstack-protector -rdynamic -Wl,-export-dynamic    -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl  -Wl,-R -Wl,/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -L/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc -o conftest -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/x86_64-linux -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/ruby/backward -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0 -I.    -I/usr/include/mysql -DBIG_JOINS=1  -fno-strict-aliasing   -g -DNDEBUG  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -Wl,-R/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -L. -fstack-protector -rdynamic -Wl,-export-dynamic    -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl  -Wl,-R -Wl,/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -L/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -lruby -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:57: error: ‘mysql_ssl_set’ undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))mysql_ssl_set; return 0; }
+                                                         ^
+conftest.c:5:57: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:32: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))mysql_ssl_set; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))mysql_ssl_set; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"gcc -o conftest -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/x86_64-linux -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/ruby/backward -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0 -I.    -I/usr/include/mysql -DBIG_JOINS=1  -fno-strict-aliasing   -g -DNDEBUG  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -Wl,-R/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -L. -fstack-protector -rdynamic -Wl,-export-dynamic    -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl  -Wl,-R -Wl,/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -L/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -lruby -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘mysql_ssl_set’ [-Wimplicit-function-declaration]
+ int t(void) { mysql_ssl_set(); return 0; }
+ ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { mysql_ssl_set(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_func: checking for rb_str_set_len()... -------------------- yes
+
+"gcc -o conftest -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/x86_64-linux -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/ruby/backward -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0 -I.    -I/usr/include/mysql -DBIG_JOINS=1  -fno-strict-aliasing   -g -DNDEBUG  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -Wl,-R/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -L. -fstack-protector -rdynamic -Wl,-export-dynamic    -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl  -Wl,-R -Wl,/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -L/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -lruby -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:32: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_str_set_len; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_str_set_len; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_func: checking for rb_thread_start_timer()... -------------------- no
+
+"gcc -o conftest -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/x86_64-linux -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/ruby/backward -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0 -I.    -I/usr/include/mysql -DBIG_JOINS=1  -fno-strict-aliasing   -g -DNDEBUG  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -Wl,-R/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -L. -fstack-protector -rdynamic -Wl,-export-dynamic    -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl  -Wl,-R -Wl,/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -L/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -lruby -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:57: error: ‘rb_thread_start_timer’ undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_start_timer; return 0; }
+                                                         ^
+conftest.c:5:57: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:32: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_start_timer; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_start_timer; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"gcc -o conftest -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/x86_64-linux -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/ruby/backward -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0 -I.    -I/usr/include/mysql -DBIG_JOINS=1  -fno-strict-aliasing   -g -DNDEBUG  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -Wl,-R/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -L. -fstack-protector -rdynamic -Wl,-export-dynamic    -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl  -Wl,-R -Wl,/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -L/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/lib -lruby -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘rb_thread_start_timer’ [-Wimplicit-function-declaration]
+ int t(void) { rb_thread_start_timer(); return 0; }
+ ^
+/tmp/ccrZi4Vi.o: In function `t':
+/home/johnnys/MyProjects/alertsmall/vendor/bundle/ruby/2.0.0/gems/mysql-2.9.1/ext/mysql_api/conftest.c:5: undefined reference to `rb_thread_start_timer'
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { rb_thread_start_timer(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_header: checking for mysql.h... -------------------- yes
+
+"gcc -E -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/x86_64-linux -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0/ruby/backward -I/home/johnnys/.rvm/rubies/ruby-2.0.0-p451/include/ruby-2.0.0 -I.    -I/usr/include/mysql -DBIG_JOINS=1  -fno-strict-aliasing   -g -DNDEBUG  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+/* end */
+
+--------------------
+
