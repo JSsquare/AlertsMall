@@ -1,25 +1,31 @@
-development:
+source:
   adapter: mysql
   encoding: utf8
-  reconnect: false
-  database:  alertsmall
-  pool: 5
-  username: root
-  password: 
-test:
-  adapter: mysql
-  encoding: utf8
-  reconnect: false
   database: alertsmall
-  pool: 5
   username: root
   password: 
+  socket: /var/run/mysqld/mysqld.sock
+
+target:
+  adapter: postgresql
+  encoding: unicode
+  database: alertsmall
+  username: postgres
+  password: typepassword
+
+development:
+  adapter: postgresql
+  host: localhost
+  pool: 5
+  encoding: unicode
+  database: alertsmall
+  username: postgres
+  password: typepassword
+
 
 production:
-  adapter: mysql
-  encoding: utf8
-  reconnect: false
-  database: alertsmall 
-  pool: 5
-  username: root
+  adapter: postgresql
+  encoding: unicode
+  database: alertsmall
+  username: postgres
   password: 
