@@ -5,7 +5,7 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 
-ruby '1.9.3'
+ruby '2.0.0'
 gem 'pg'
 
 gem 'mysql'
