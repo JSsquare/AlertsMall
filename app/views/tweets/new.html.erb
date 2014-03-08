@@ -1,6 +1,7 @@
 <%- model_class = Tweet -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+  <h1>Post for @PuneFoodAlerts</h1>
+  <!--<h1><%=t '.title', :default => [:'helpers.titles.new', '%{model} For @PuneFoodAlerts'], :model => model_class.model_name.human.titleize %></h1>-->
 </div>
 
 <%= form_for @tweet, :html => { :class => 'form-horizontal' } do |f| %>
