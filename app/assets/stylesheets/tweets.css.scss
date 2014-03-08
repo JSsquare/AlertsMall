@@ -1,3 +1,35 @@
 // Place all the styles related to the tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.label-for-tweet {
+  color: #66757F;
+  font-size: 22px;
+  font-weight: 200;
+  line-height: 22px;
+  font-family: sans-serif;
+  padding-right:10px;
+  padding-top: 2px;
+  float:left;
+}
+
+.tweet-form .tweet-btn {
+  display: inline-block;
+}
+.tweet-btn, .tweet-btn:focus {
+  background: none repeat scroll 0 0 rgba(0, 132, 180, 0.8);
+}
+
+.tweet-btn:hover, .tweet-btn:active, .tweet-btn.active {
+  background-color: #0084B4;
+}
+
+.tweet-btn.btn.disabled, .tweet-btn.btn.disabled:hover, .tweet-btn.btn[disabled], .tweet-btn.btn[aria-disabled="true"] {
+  background: none repeat scroll 0 0 #0084B4;
+}
+
+tweet-btn {
+  color: #FFFFFF;
+  text-align: center;
+}
