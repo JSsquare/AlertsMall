@@ -1,6 +1,8 @@
 Alertsmall::Application.routes.draw do
+  resources :authentications
   resources :shops
   resources :tweets
+  get 'auth/:provider/callback' => 'tweets#new'
   root :to => "tweets#new"
 
   # The priority is based upon order of creation: first created -> highest priority.

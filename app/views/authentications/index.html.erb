@@ -1,0 +1,18 @@
+<% title "Authentications" %>
+
+<table>
+  <tr>
+    <th>Account</th>
+    <th>Provider</th>
+    <th>Uid</th>
+  </tr>
+  <% for authentication in @authentications %>
+    <tr>
+      <td><%= authentication.account_id %></td>
+      <td><%= authentication.provider %></td>
+      <td><%= authentication.uid %></td>
+      <td><%= link_to "Destroy", authentication, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+

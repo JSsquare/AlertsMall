@@ -5,6 +5,10 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'nifty-generators'
+
 ruby '2.0.0'
 gem 'pg'
 
@@ -54,3 +58,5 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem "mocha", group: :test
