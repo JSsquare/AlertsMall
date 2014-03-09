@@ -8,6 +8,7 @@ gem "twitter-bootstrap-rails"
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'nifty-generators'
+gem 'protected_attributes'
 
 ruby '2.0.0'
 gem 'pg'
