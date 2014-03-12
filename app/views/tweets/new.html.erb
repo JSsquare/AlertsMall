@@ -4,14 +4,15 @@
   <!--<h1><%=t '.title', :default => [:'helpers.titles.new', '%{model} For @PuneFoodAlerts'], :model => model_class.model_name.human.titleize %></h1>-->
 </div>
 
-<%= form_for @tweet, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @tweet, :html => { :name => 'post-form', :class => 'form-horizontal' } do |f| %>
     <div class="control-group" style="text-align: center;">
       <div id="inner" style="display: inline-block;">
       <%= f.label 'tweet', :class => 'label-for-tweet'  %>
         <%= f.text_field :body, :class => 'text_field' %>
         <%= f.submit 'Tweet', :class => 'btn primary-btn tweet-action tweet-btn js-tweet-btn' %>
-        <!--  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                          tweets_path, :class => 'btn' %>-->
+        <input id="cb" type="checkbox" onclick="handleClick(this);" checked>I'm John Doe
+
+
       </div>
     </div>
 
@@ -19,3 +20,18 @@
 
     </div>
 <% end %>
+
+
+
+
+<script>
+    function handleClick(cb) {
+        if(cb.checked){
+            document['post-form'].action = "/tweets";
+        }
+        if(cb.checked == false) {
+            document['post-form'].action = "/auth/twitter";
+        }
+    }
+
+</script>
