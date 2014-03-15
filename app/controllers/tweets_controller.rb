@@ -5,7 +5,16 @@ class TweetsController < ApplicationController
   end
 
   def create
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #{request.env["omniauth.auth"]}"
+    if request.env["omniauth.auth"].present?
+      auth = request.env["omniauth.auth"]
+      @token = auth['credentials']['token']
+      @secret = auth['credentials']['secret']
+      @handle = auth['info']['name']
+    end
+    request.env["omniauth.auth"]
     @tweet = Tweet.new(tweet_params)
+
     tweet_post(tweet_params)
     respond_to do |format|
       if @tweet.save
@@ -48,5 +57,6 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:body)
   end
+
 
 end

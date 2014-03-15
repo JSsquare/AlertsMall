@@ -10,26 +10,35 @@
       <%= f.label 'tweet', :class => 'label-for-tweet'  %>
         <%= f.text_field :body, :class => 'text_field' %>
         <%= f.submit 'Tweet', :class => 'btn primary-btn tweet-action tweet-btn js-tweet-btn' %>
-        <input id="cb" type="checkbox" onclick="handleClick(this);" checked>I'm John Doe
-
-
       </div>
-    </div>
+      <div class="label-for-checkbox">
+        <%if request.env["omniauth.auth"].nil? %>
+            <input id="JohnDoe" type="checkbox" onclick="handleClick(this);">
+            I'm John Doe
+       </div>
+         <%end%>
 
-    <div class="form-actions">
-
     </div>
+    <%# request.env["omniauth.auth"].inspect %>
+
+
 <% end %>
 
 
 
 
 <script>
-    function handleClick(cb) {
-        if(cb.checked){
+    $(document).ready(function(){
+       if(document.getElementById("JohnDoe").checked == false){
+           document['post-form'].action = "/auth/twitter";
+       }
+    });
+
+    function handleClick(JohnDoe) {
+        if(JohnDoe.checked){
             document['post-form'].action = "/tweets";
         }
-        if(cb.checked == false) {
+        if(JohnDoe.checked == false) {
             document['post-form'].action = "/auth/twitter";
         }
     }
