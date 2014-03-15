@@ -11,16 +11,22 @@
         <%= f.text_field :body, :class => 'text_field' %>
         <%= f.submit 'Tweet', :class => 'btn primary-btn tweet-action tweet-btn js-tweet-btn' %>
       </div>
+
       <div class="label-for-checkbox">
         <%if request.env["omniauth.auth"].nil? %>
-            <input id="JohnDoe" type="checkbox" onclick="handleClick(this);">
-            I'm John Doe
-       </div>
-         <%end%>
+            <%if @username.present? %>
+                <input type="hidden" name="tweet[username]" value=<%= @username%>>
+                <%= link_to "Im not #{@username} Anymore", new_tweet_path(not_john_doe: true) %>
+            <%else%>
+                 <input id="JohnDoe" type="checkbox" onclick="handleClick(this);">
+                I'm John Doe
+            <%end%>
+        <%else%>
+            <input type="hidden" name="tweet[username]" value=<%= request.env["omniauth.auth"]["info"]["nickname"]%>>
+        <%end%>
+      </div>
 
     </div>
-    <%# request.env["omniauth.auth"].inspect %>
-
 
 <% end %>
 
