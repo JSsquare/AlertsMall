@@ -38,7 +38,7 @@ input.checkbox{
   font-family: sans-serif;
   padding-left: 0px;
   margin: auto;
-  width: 50%;
+  width: 100%;
 
 }
 
@@ -71,6 +71,7 @@ input.text,
 select,
 textarea
 {
+  margin: auto;
   -webkit-appearance: none;
   display: block;
   border: 0;

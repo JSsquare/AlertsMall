@@ -19,19 +19,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="50" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.4793233">
+            <state line="17" column="50" selection-start="1079" selection-end="1079" vertical-scroll-proportion="-10.625">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tweets.css.scss" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="tweets.css.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="1" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.0">
+            <state line="73" column="14" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.24280575">
               <folding />
             </state>
           </provider>
@@ -132,9 +132,9 @@
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/tweets_controller.rb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss" />
         <option value="$PROJECT_DIR$/app/views/tweets/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss" />
       </list>
     </option>
   </component>
@@ -666,13 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="1" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="54" selection-start="2435" selection-end="2435" vertical-scroll-proportion="-8.125">
@@ -682,7 +675,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="50" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.4793233">
+        <state line="17" column="50" selection-start="1079" selection-end="1079" vertical-scroll-proportion="-10.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="14" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.24280575">
           <folding />
         </state>
       </provider>
