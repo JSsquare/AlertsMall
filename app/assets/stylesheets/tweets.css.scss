@@ -37,8 +37,8 @@ input.checkbox{
   line-height: 46px;
   font-family: sans-serif;
   padding-left: 0px;
-  margin-left: -410px;
-  margin-bottom: 20px;
+  margin: auto;
+  width: 50%;
 
 }
 
@@ -67,9 +67,9 @@ tweet-btn {
 
 
 
-form input.text,
-form select,
-form textarea
+input.text,
+select,
+textarea
 {
   -webkit-appearance: none;
   display: block;
@@ -173,6 +173,7 @@ form ul.actions
 }
 
 #inner{
+  margin: auto;
   margin-top: 30px;
   display: inline-block;
   width: 100%;

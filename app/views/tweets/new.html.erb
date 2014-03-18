@@ -8,15 +8,17 @@
     <div class="control-group" style="text-align: center;">
       <div id="inner" >
       <%#= f.label 'tweet', :class => 'label-for-tweet'  %>
-        <%= f.text_field :body, :class => 'text', :placeholder => "Post Your Review...." %>
+        <%= f.text_field :body, :class => 'text', :placeholder => "Post Your Review....", :autocomplete => "off" %>
         <div class="label-for-checkbox">
           <%if request.env["omniauth.auth"].nil? %>
               <%if @username.present? %>
                   <input type="hidden" name="tweet[username]" value=<%= @username%>>
                   <%= link_to "Hide @#{@username}", new_tweet_path(not_john_doe: true) %>
               <%else%>
+                  <label class="label-for-checkbox">
                   <input id="JohnDoe" class="checkbox" type="checkbox" onclick="handleClick(this);">
                   Be John Doe
+                  </label>
               <%end%>
           <%else%>
               <input type="hidden" name="tweet[username]" value=<%= request.env["omniauth.auth"]["info"]["nickname"]%>>
