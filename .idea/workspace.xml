@@ -19,19 +19,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="23" selection-start="1149" selection-end="1149" vertical-scroll-proportion="-11.25">
+            <state line="6" column="32" selection-start="319" selection-end="319" vertical-scroll-proportion="0.16917293">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tweets.css.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="tweets.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="145" column="16" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.41904762">
+            <state line="152" column="31" selection-start="2443" selection-end="2443" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -94,7 +94,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="9" selection-start="1837" selection-end="1837" vertical-scroll-proportion="-9.375">
+            <state line="38" column="9" selection-start="1837" selection-end="1837" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -133,8 +133,8 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/tweets_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/tweets/new.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss" />
+        <option value="$PROJECT_DIR$/app/views/tweets/new.html.erb" />
       </list>
     </option>
   </component>
@@ -170,8 +170,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -246,16 +244,18 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Rails.Development: alertsmall">
     <configuration default="true" type="RakeRunConfigurationType" factoryName="Rake">
@@ -517,7 +517,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3605116" sideWeight="0.6702786" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36770582" sideWeight="0.6702786" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -647,7 +647,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="9" selection-start="1837" selection-end="1837" vertical-scroll-proportion="-9.375">
+        <state line="38" column="9" selection-start="1837" selection-end="1837" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -673,16 +673,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="23" selection-start="1149" selection-end="1149" vertical-scroll-proportion="-11.25">
+        <state line="152" column="31" selection-start="2443" selection-end="2443" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss">
+    <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="16" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.41904762">
+        <state line="6" column="32" selection-start="319" selection-end="319" vertical-scroll-proportion="0.16917293">
           <folding />
         </state>
       </provider>

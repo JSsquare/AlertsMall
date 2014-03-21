@@ -1,4 +1,13 @@
 <%- model_class = Tweet -%>
+<% if request.env["omniauth.auth"].present?
+     @placeholder_text = "Post review via @#{request.env["omniauth.auth"]["info"]["nickname"]}...."
+   elsif session[:username].present?
+     @placeholder_text = "Post review via @#{session[:username]}...."
+   else
+     @placeholder_text = "Type Review Here...."
+  end
+%>
+
 <div class="page-header" style="width: 100%;">
   <h1 style="font-weight:lighter; text-align: center; font-family: sans-serif;"> Tweet Your Food Reviews</h1>
   <!--<h1><%=t '.title', :default => [:'helpers.titles.new', '%{model} For @PuneFoodAlerts'], :model => model_class.model_name.human.titleize %></h1>-->
@@ -7,12 +16,12 @@
 <%= form_for @tweet, :html => { :name => 'post-form', :class => 'form-horizontal' } do |f| %>
     <div class="control-group" style="text-align: center;">
       <div id="inner" >
-        <%= f.text_field :body, :class => 'text', :placeholder => "Type Review Here....", :autocomplete => "off" %>
+        <%= f.text_field :body, :class => 'text', :placeholder => "#{@placeholder_text}", :autocomplete => "off" %>
         <div class="label-for-checkbox">
           <%if request.env["omniauth.auth"].nil? %>
               <%if @username.present? %>
                   <input type="hidden" name="tweet[username]" value=<%= @username%>>
-                  <%= link_to "Hide @#{@username}", new_tweet_path(not_john_doe: true) %>
+                  <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_john_doe: true) %>
               <%else%>
                   <label class="label-for-checkbox">
                   <input id="JohnDoe" class="checkbox" type="checkbox" onclick="handleClick(this);">
@@ -20,6 +29,9 @@
                   </label>
               <%end%>
           <%else%>
+              <% @username = request.env["omniauth.auth"]["info"]["nickname"]
+                 session[:username] = @username%>
+              <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_john_doe: true) %>
               <input type="hidden" name="tweet[username]" value=<%= request.env["omniauth.auth"]["info"]["nickname"]%>>
           <%end%>
         </div>
@@ -35,6 +47,7 @@
 
 
 <script>
+    document['post-form'].action = "/auth/twitter";
     $(document).ready(function(){
        if(document.getElementById("JohnDoe").checked == false){
            document['post-form'].action = "/auth/twitter";
