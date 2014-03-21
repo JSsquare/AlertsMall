@@ -7,7 +7,7 @@ Alertsmall::Application.routes.draw do
   resources :tweets
   get   '/login', :to => 'sessions#new', :as => :login
   #get '/auth/:provider/callback' => 'sessions#create'
-  get '/auth/failure'=> 'sessions#failure'
+  get '/auth/failure'=> 'tweets#new'
   get 'auth/:provider/callback' => 'tweets#new'
   root :to => "tweets#new"
 

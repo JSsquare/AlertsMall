@@ -1,14 +1,13 @@
 <%- model_class = Tweet -%>
 <div class="page-header" style="width: 100%;">
-  <h1 style="font-weight:lighter; text-align: center; font-family: sans-serif;">Tweet for @AlertsMall</h1>
+  <h1 style="font-weight:lighter; text-align: center; font-family: sans-serif;"> Tweet Your Food Reviews</h1>
   <!--<h1><%=t '.title', :default => [:'helpers.titles.new', '%{model} For @PuneFoodAlerts'], :model => model_class.model_name.human.titleize %></h1>-->
 </div>
 
 <%= form_for @tweet, :html => { :name => 'post-form', :class => 'form-horizontal' } do |f| %>
     <div class="control-group" style="text-align: center;">
       <div id="inner" >
-      <%#= f.label 'tweet', :class => 'label-for-tweet'  %>
-        <%= f.text_field :body, :class => 'text', :placeholder => "Post Your Review....", :autocomplete => "off" %>
+        <%= f.text_field :body, :class => 'text', :placeholder => "Type Review Here....", :autocomplete => "off" %>
         <div class="label-for-checkbox">
           <%if request.env["omniauth.auth"].nil? %>
               <%if @username.present? %>
@@ -17,7 +16,7 @@
               <%else%>
                   <label class="label-for-checkbox">
                   <input id="JohnDoe" class="checkbox" type="checkbox" onclick="handleClick(this);">
-                  Post as John Doe
+                  Tweet as John Doe
                   </label>
               <%end%>
           <%else%>
@@ -30,7 +29,6 @@
       </div>
 
     </div>
-
 <% end %>
 
 
