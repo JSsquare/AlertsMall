@@ -11,3 +11,68 @@
  *= require_self
  *= require_tree .
  */
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -100px;
+}
+
+/* Set the fixed height of the footer here */
+#push{
+    height: 180px;
+}
+#footer {
+    height: 60px;
+}
+#footer {
+    background: none repeat scroll 0 0 #f2f2f2;
+    color: #66757F;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+a
+{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: normal;
+    border-bottom: dotted 1px rgba(128,128,128,0.5);
+    -moz-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+    -webkit-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+    -o-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+    -ms-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+    transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+    outline: 0;
+    padding-left: 0px;
+    margin-left: 54px;
+    margin-bottom: 20px;
+}
+
+a:hover
+{
+    text-decoration: none;
+    color: #668988 !important;
+    background-color:#fffafa !important;
+    border-bottom-color: rgba(255,255,255,0);
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-top: 50px;
+        padding-right: 20px;
+    }
+}
