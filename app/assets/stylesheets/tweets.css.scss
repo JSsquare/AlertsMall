@@ -205,3 +205,16 @@ a:hover
   background-color:none;
   border-bottom-color: rgba(255,255,255,0);
 }
+
+
+@media (max-width: 960px) {
+  input.text,
+  select,
+  textarea
+  {
+    width: 280px;
+    height: 200px;
+    padding: 0.90em;
+  }
+
+}
