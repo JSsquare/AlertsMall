@@ -19,10 +19,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="52" selection-start="2242" selection-end="2242" vertical-scroll-proportion="0.64928055">
+            <state line="52" column="52" selection-start="2242" selection-end="2242" vertical-scroll-proportion="-15.041667">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20140323161608_add_johndoe_column_to_tweets.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140323161608_add_johndoe_column_to_tweets.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="56" selection-start="205" selection-end="205" vertical-scroll-proportion="0.15817223">
               <folding />
             </state>
           </provider>
@@ -110,7 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/posts_controller.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/initializers/omniauth.rb" />
         <option value="$PROJECT_DIR$/app/controllers/authentications_controller.rb" />
@@ -126,6 +134,7 @@
         <option value="$PROJECT_DIR$/db/migrate/20140323124622_drop_shops.rb" />
         <option value="$PROJECT_DIR$/app/models/tweet.rb" />
         <option value="$PROJECT_DIR$/app/views/tweets/new.html.erb" />
+        <option value="$PROJECT_DIR$/db/migrate/20140323161608_add_johndoe_column_to_tweets.rb" />
       </list>
     </option>
   </component>
@@ -238,24 +247,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="alertsmall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="alertsmall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -618,11 +609,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/database.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/omniauth.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="89" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0" />
@@ -721,7 +707,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="52" selection-start="2242" selection-end="2242" vertical-scroll-proportion="0.64928055">
+        <state line="52" column="52" selection-start="2242" selection-end="2242" vertical-scroll-proportion="-15.041667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140323161608_add_johndoe_column_to_tweets.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="56" selection-start="205" selection-end="205" vertical-scroll-proportion="0.15817223">
           <folding />
         </state>
       </provider>
