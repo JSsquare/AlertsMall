@@ -20,16 +20,18 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.new(tweet_params)
     tweet_post(tweet_params)
     session[:username] = tweet_params["username"].present? ?  tweet_params["username"] : false
-    if request.env['omniauth.auth'].present?
+    if request.env['omniauth.auth'].present? or session[:username].present?
+      params[:tweet][:provider] = 'twitter'
+      params[:tweet][:johndoe] = false
       session[:auth_hash] =  request.env['omniauth.auth']
     end
+    @tweet = Tweet.new(params[:tweet])
     respond_to do |format|
       if @tweet.save
         format.html { redirect_to new_tweet_path, notice: 'You just tweeted for AlertsMall' }
-        format.json { render action: 'shops/index', status: :created, location: @tweet }
+        format.json { render action: 'tweets/new', status: :created, location: @tweet }
       else
         format.html { render action: 'new' }
         format.json { render json: @tweet.errors, status: :unprocessable_entity }

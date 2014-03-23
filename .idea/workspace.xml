@@ -22,16 +22,7 @@
       <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="52" selection-start="2242" selection-end="2242" vertical-scroll-proportion="-15.041667">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20140323163400_add_provider_to_tweets.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20140323163400_add_provider_to_tweets.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="36" selection-start="205" selection-end="205" vertical-scroll-proportion="0.15817223">
+            <state line="33" column="90" selection-start="1794" selection-end="1794" vertical-scroll-proportion="-11.25">
               <folding />
             </state>
           </provider>
@@ -58,7 +49,7 @@
       <file leaf-file-name="tweet.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/tweet.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="23" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
+            <state line="1" column="44" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -73,10 +64,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tweets_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="tweets_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/tweets_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="12" selection-start="1000" selection-end="1000" vertical-scroll-proportion="0.0">
+            <state line="22" column="4" selection-start="733" selection-end="733" vertical-scroll-proportion="0.10344828">
               <folding />
             </state>
           </provider>
@@ -85,7 +76,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="10" selection-start="2282" selection-end="2282" vertical-scroll-proportion="0.0">
+            <state line="81" column="123" selection-start="3523" selection-end="3523" vertical-scroll-proportion="-20.625">
               <folding />
             </state>
           </provider>
@@ -126,15 +117,15 @@
         <option value="$PROJECT_DIR$/app/models/authorization.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/tweets_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss" />
         <option value="$PROJECT_DIR$/db/migrate/20140323124622_drop_shops.rb" />
-        <option value="$PROJECT_DIR$/app/models/tweet.rb" />
-        <option value="$PROJECT_DIR$/app/views/tweets/new.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20140323161608_add_johndoe_column_to_tweets.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140323163400_add_provider_to_tweets.rb" />
+        <option value="$PROJECT_DIR$/app/models/tweet.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/tweets/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/tweets_controller.rb" />
       </list>
     </option>
   </component>
@@ -609,13 +600,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/tweets_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="12" selection-start="1000" selection-end="1000" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="44" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
@@ -623,23 +607,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="10" selection-start="2282" selection-end="2282" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="69" column="27" selection-start="1973" selection-end="2000" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -693,13 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/tweet.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="23" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140323161608_add_johndoe_column_to_tweets.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="56" selection-start="205" selection-end="205" vertical-scroll-proportion="0.15817223">
@@ -707,16 +670,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140323163400_add_provider_to_tweets.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="52" selection-start="2242" selection-end="2242" vertical-scroll-proportion="-15.041667">
+        <state line="6" column="36" selection-start="205" selection-end="205" vertical-scroll-proportion="0.15817223">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140323163400_add_provider_to_tweets.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/tweet.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="36" selection-start="205" selection-end="205" vertical-scroll-proportion="0.15817223">
+        <state line="1" column="44" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="123" selection-start="3523" selection-end="3523" vertical-scroll-proportion="-20.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="90" selection-start="1794" selection-end="1794" vertical-scroll-proportion="-11.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/tweets_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="4" selection-start="733" selection-end="733" vertical-scroll-proportion="0.10344828">
           <folding />
         </state>
       </provider>

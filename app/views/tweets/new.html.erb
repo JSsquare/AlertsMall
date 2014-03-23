@@ -31,7 +31,7 @@
           <%else%>
               <% @username = request.env["omniauth.auth"]["info"]["nickname"]
                  session[:username] = @username%>
-              <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_john_doe: true) %>
+              <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_john_doe: true)%>
               <input type="hidden" id="tweet_username"  name="tweet[username]" value=<%= request.env["omniauth.auth"]["info"]["nickname"]%>>
           <%end%>
         </div>
