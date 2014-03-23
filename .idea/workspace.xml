@@ -28,10 +28,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20140323161608_add_johndoe_column_to_tweets.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20140323161608_add_johndoe_column_to_tweets.rb">
+      <file leaf-file-name="20140323163400_add_provider_to_tweets.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140323163400_add_provider_to_tweets.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="56" selection-start="205" selection-end="205" vertical-scroll-proportion="0.15817223">
+            <state line="6" column="36" selection-start="205" selection-end="205" vertical-scroll-proportion="0.15817223">
               <folding />
             </state>
           </provider>
@@ -119,7 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/initializers/omniauth.rb" />
         <option value="$PROJECT_DIR$/app/controllers/authentications_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/authentication.rb" />
@@ -135,6 +134,7 @@
         <option value="$PROJECT_DIR$/app/models/tweet.rb" />
         <option value="$PROJECT_DIR$/app/views/tweets/new.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20140323161608_add_johndoe_column_to_tweets.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20140323163400_add_provider_to_tweets.rb" />
       </list>
     </option>
   </component>
@@ -609,11 +609,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/initializers/omniauth.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="89" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/tweets_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="12" selection-start="1000" selection-end="1000" vertical-scroll-proportion="0.0">
@@ -705,6 +700,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140323161608_add_johndoe_column_to_tweets.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="56" selection-start="205" selection-end="205" vertical-scroll-proportion="0.15817223">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="52" selection-start="2242" selection-end="2242" vertical-scroll-proportion="-15.041667">
@@ -712,9 +714,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140323161608_add_johndoe_column_to_tweets.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140323163400_add_provider_to_tweets.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="56" selection-start="205" selection-end="205" vertical-scroll-proportion="0.15817223">
+        <state line="6" column="36" selection-start="205" selection-end="205" vertical-scroll-proportion="0.15817223">
           <folding />
         </state>
       </provider>
