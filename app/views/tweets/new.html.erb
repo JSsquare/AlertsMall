@@ -20,7 +20,7 @@
         <div class="label-for-checkbox">
           <%if request.env["omniauth.auth"].nil? %>
               <%if @username.present? %>
-                  <input type="hidden" name="tweet[username]" value=<%= @username%>>
+                  <input type="hidden" id="tweet_username" name="tweet[username]" value=<%= @username%>>
                   <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_john_doe: true) %>
               <%else%>
                   <label class="label-for-checkbox">
@@ -32,7 +32,7 @@
               <% @username = request.env["omniauth.auth"]["info"]["nickname"]
                  session[:username] = @username%>
               <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_john_doe: true) %>
-              <input type="hidden" name="tweet[username]" value=<%= request.env["omniauth.auth"]["info"]["nickname"]%>>
+              <input type="hidden" id="tweet_username"  name="tweet[username]" value=<%= request.env["omniauth.auth"]["info"]["nickname"]%>>
           <%end%>
         </div>
 
@@ -48,6 +48,13 @@
 
 <script>
     document['post-form'].action = "/auth/twitter";
+
+    var loggedin =  document.getElementById('tweet_username');
+    if (typeof(loggedin) != 'undefined' && loggedin != null)
+    {
+        document['post-form'].action = "/tweets";
+    }
+
     $(document).ready(function(){
        if(document.getElementById("JohnDoe").checked == false){
            document['post-form'].action = "/auth/twitter";
