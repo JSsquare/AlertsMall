@@ -22,7 +22,7 @@
       <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="27" selection-start="394" selection-end="400" vertical-scroll-proportion="-6.875">
+            <state line="11" column="30" selection-start="403" selection-end="403" vertical-scroll-proportion="-6.875">
               <folding />
             </state>
           </provider>
@@ -31,7 +31,7 @@
       <file leaf-file-name="tweets.css.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="10" selection-start="641" selection-end="641" vertical-scroll-proportion="0.8021583">
+            <state line="172" column="2" selection-start="3180" selection-end="3180" vertical-scroll-proportion="0.48741007">
               <folding />
             </state>
           </provider>
@@ -686,14 +686,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/tweets/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="27" selection-start="394" selection-end="400" vertical-scroll-proportion="-6.875">
+        <state line="11" column="30" selection-start="403" selection-end="403" vertical-scroll-proportion="-6.875">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="10" selection-start="641" selection-end="641" vertical-scroll-proportion="0.8021583">
+        <state line="172" column="2" selection-start="3180" selection-end="3180" vertical-scroll-proportion="0.48741007">
           <folding />
         </state>
       </provider>
