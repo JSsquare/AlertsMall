@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.pageheader{
+  width: 100%;
+}
+
 h1,h2,h3,h4,h5,h6
 {
   font-weight: 400;
@@ -31,7 +35,7 @@ input.checkbox{
 }
 
 .label-for-checkbox {
-  color: #66757F;
+  color: #668988;
   font-size: 13px;
   font-weight: 200;
   line-height: 46px;
@@ -166,7 +170,7 @@ form ul.actions
 
 .button:hover
 {
-  background-color: #0084B4;
+  //background-color: #0084B4;
 }
 
 .button:active
