@@ -1,10 +1,13 @@
 <%- model_class = Tweet -%>
 <% if request.env["omniauth.auth"].present?
      @placeholder_text = "Post review via @#{request.env["omniauth.auth"]["info"]["nickname"]}...."
+     @button_text = "Tweet"
    elsif session[:username].present?
      @placeholder_text = "Post review via @#{session[:username]}...."
+     @button_text = "Tweet"
    else
-     @placeholder_text = "Write Your Review ...."
+     @placeholder_text = "Login to post your review...."
+     @button_text = "Login"
   end
 %>
 
@@ -36,7 +39,7 @@
           <%end%>
         </div>
 
-        <%= f.submit 'Tweet', :class => 'button' %>
+        <%= f.submit "#{@button_text}", :class => 'button', :id =>"tweet_or_login" %>
 
       </div>
 
@@ -63,9 +66,13 @@
 
     function handleClick(JohnDoe) {
         if(JohnDoe.checked){
+            document.getElementById("tweet_body").placeholder = "Write your review ...";
+            document.getElementById("tweet_or_login").value = "Tweet";
             document['post-form'].action = "/tweets";
         }
         if(JohnDoe.checked == false) {
+            document.getElementById("tweet_body").placeholder = "Login to post your review...";
+            document.getElementById("tweet_or_login").value = "Login";
             document['post-form'].action = "/auth/twitter";
         }
     }
