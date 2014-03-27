@@ -6,7 +6,7 @@
      @placeholder_text = "Post review via @#{session[:username]}...."
      @button_text = "Tweet"
    else
-     @placeholder_text = "Login to post your review...."
+     @placeholder_text = "Click Login to post your review...."
      @button_text = "Login"
   end
 %>
@@ -24,17 +24,17 @@
           <%if request.env["omniauth.auth"].nil? %>
               <%if @username.present? %>
                   <input type="hidden" id="tweet_username" name="tweet[username]" value=<%= @username%>>
-                  <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_john_doe: true) %>
+                  <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_johndoe: true) %>
               <%else%>
                   <label class="label-for-checkbox">
-                  <input id="JohnDoe" class="checkbox" type="checkbox" onclick="handleClick(this);">
+                  <input id="JohnDoe" class="checkbox" type="checkbox" onclick="handleClick(this);" <%if params[:not_johndoe] %>checked="checked"<%end %>>
                   Tweet as John Doe
                   </label>
               <%end%>
           <%else%>
               <% @username = request.env["omniauth.auth"]["info"]["nickname"]
                  session[:username] = @username%>
-              <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_john_doe: true)%>
+              <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_johndoe: true)%>
               <input type="hidden" id="tweet_username"  name="tweet[username]" value=<%= request.env["omniauth.auth"]["info"]["nickname"]%>>
           <%end%>
         </div>
@@ -44,6 +44,8 @@
       </div>
 
     </div>
+
+
 <% end %>
 
 
@@ -51,11 +53,28 @@
 
 <script>
     document['post-form'].action = "/auth/twitter";
+    if($('#JohnDoe').is(':checked')){
+        $('#tweet_body').show();
+        document.getElementById("tweet_body").placeholder = "Write your review ...";
+        document.getElementById("tweet_or_login").value = "Tweet";
+        document['post-form'].action = "/tweets";
+    }
+    else
+    {
+        $("#tweet_body").attr('disabled',true);
+    }
 
     var loggedin =  document.getElementById('tweet_username');
     if (typeof(loggedin) != 'undefined' && loggedin != null)
     {
         document['post-form'].action = "/tweets";
+        $('#tweet_body').show();
+        $("#tweet_body").attr('disabled',false);
+    }
+    else
+    {
+        $('#tweet_body').fadeIn(5000);
+
     }
 
     $(document).ready(function(){
@@ -66,12 +85,14 @@
 
     function handleClick(JohnDoe) {
         if(JohnDoe.checked){
+            $("#tweet_body").attr('disabled',false);
             document.getElementById("tweet_body").placeholder = "Write your review ...";
             document.getElementById("tweet_or_login").value = "Tweet";
             document['post-form'].action = "/tweets";
         }
         if(JohnDoe.checked == false) {
-            document.getElementById("tweet_body").placeholder = "Login to post your review...";
+            $("#tweet_body").attr('disabled',true);
+            document.getElementById("tweet_body").placeholder = "Click Login to post your review...";
             document.getElementById("tweet_or_login").value = "Login";
             document['post-form'].action = "/auth/twitter";
         }

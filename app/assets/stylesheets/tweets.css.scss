@@ -115,14 +115,11 @@ textarea
   color: #5a5959 !important;
 }
 
-::-moz-placeholder
-{
-  color: #5a5959 !important;
-}
 
 :-ms-input-placeholder
 {
   color: #5a5959 !important;
+
 }
 
 ::-moz-focus-inner
@@ -210,6 +207,9 @@ a:hover
   border-bottom-color: rgba(255,255,255,0);
 }
 
+#tweet_body{
+  display: none;
+}
 
 @media (max-width: 960px) {
   input.text,

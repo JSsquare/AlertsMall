@@ -1,7 +1,8 @@
 class TweetsController < ApplicationController
 
   def new
-    session.clear if params["not_john_doe"]
+    session.clear if params["not_johndoe"]
+
     @username = session[:username]
 
     if request.env['omniauth.auth'].present?
