@@ -2,32 +2,18 @@ class TweetsController < ApplicationController
 
   def new
     session.clear if params["not_johndoe"]
-
     @username = session[:username]
-
-    if request.env['omniauth.auth'].present?
-      auth_hash = request.env['omniauth.auth']
-      @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
-      if @authorization
-        render :text => "Welcome back #{@authorization.user.name}! You have already signed up."
-      else
-        user = User.new :name => auth_hash["info"]["nickname"], :email => "test@test.com"
-        user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
-        user.save
-      end
-    end
-
     @tweet = Tweet.new
   end
 
   def create
-    tweet_post(tweet_params)
     session[:username] = tweet_params["username"].present? ?  tweet_params["username"] : false
     if request.env['omniauth.auth'].present? or session[:username].present?
       params[:tweet][:provider] = 'twitter'
       params[:tweet][:johndoe] = false
       session[:auth_hash] =  request.env['omniauth.auth']
     end
+    tweet_post(tweet_params) if posted?
     @tweet = Tweet.new(params[:tweet])
     respond_to do |format|
       if @tweet.save
@@ -39,6 +25,15 @@ class TweetsController < ApplicationController
       end
     end
 
+  end
+
+  def posted?
+    if params[:tweet][:username].present? and params[:tweet][:johndoe] == false
+      params[:tweet][:posted] = true
+      return true
+    else
+      return false
+    end
   end
 
   def tweet_post(tweet_params)
