@@ -13,6 +13,7 @@ gem 'protected_attributes'
 ruby '2.0.0'
 gem 'pg'
 
+gem 'devise'
 gem 'mysql'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'

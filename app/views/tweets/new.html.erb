@@ -6,7 +6,7 @@
      @placeholder_text = "Post review via @#{session[:username]}...."
      @button_text = "Tweet"
    else
-     @placeholder_text = "Click Login to post your review...."
+     @placeholder_text = "Login or Be JohnDoe to post your review"
      @button_text = "Login"
   end
 %>
@@ -28,7 +28,7 @@
               <%else%>
                   <label class="label-for-checkbox">
                   <input id="JohnDoe" class="checkbox" type="checkbox" onclick="handleClick(this);" <%if params[:not_johndoe] %>checked="checked"<%end %>>
-                  Tweet as John Doe
+                  Be JohnDoe
                   </label>
               <%end%>
           <%else%>
@@ -92,7 +92,7 @@
         }
         if(JohnDoe.checked == false) {
             $("#tweet_body").attr('disabled',true);
-            document.getElementById("tweet_body").placeholder = "Click Login to post your review...";
+            document.getElementById("tweet_body").placeholder = "Login or Be JohnDoe to post your review";
             document.getElementById("tweet_or_login").value = "Login";
             document['post-form'].action = "/auth/twitter";
         }
