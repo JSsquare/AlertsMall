@@ -3,15 +3,13 @@ Alertsmall::Application.routes.draw do
   get "sessions/new"
   get "sessions/create"
   get "sessions/failure"
-  resources :authentications
-  resources :shops
+
   resources :tweets
-  get   '/login', :to => 'sessions#new', :as => :login
-  #get '/auth/:provider/callback' => 'sessions#create'
+
   get '/auth/failure'=> 'tweets#new'
   get 'auth/:provider/callback' => 'tweets#new'
 
-  get '/admin', :to => 'users#sign_in', :as => :admin
+
   root :to => "tweets#new"
 
   # The priority is based upon order of creation: first created -> highest priority.

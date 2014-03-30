@@ -1,0 +1,15 @@
+<h1>Listing Tweets</h1>
+
+<table class="table table-hover">
+  <tr>
+    <th>Tweet</th>
+    <th>John Doe</th>
+  </tr>
+
+  <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.body %></td>
+        <td><%= tweet.johndoe%></td>
+      </tr>
+  <% end %>
+</table>

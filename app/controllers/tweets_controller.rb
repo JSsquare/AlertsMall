@@ -1,5 +1,15 @@
 class TweetsController < ApplicationController
 
+  before_filter :authenticate_user!, :only => [:index]
+
+  def index
+    @tweets = Tweet.all
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @tweet }
+    end
+  end
+
   def new
     session.clear if params["not_johndoe"]
     @username = session[:username]
@@ -35,6 +45,7 @@ class TweetsController < ApplicationController
       return false
     end
   end
+
 
   def tweet_post(tweet_params)
     consumer_key = "dSMJ2nkOj87ooiWrQKzTSw"
