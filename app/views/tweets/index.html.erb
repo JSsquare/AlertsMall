@@ -7,9 +7,12 @@
   </tr>
 
   <% @tweets.each do |tweet| %>
+      <%= form_for(tweet, :html => {:multipart => true, :class=> '.form-inline'} ) do |t| %>
       <tr>
         <td><%= tweet.body %></td>
         <td><%= tweet.johndoe%></td>
+        <td><%= %></td>
       </tr>
+  <% end %>
   <% end %>
 </table>

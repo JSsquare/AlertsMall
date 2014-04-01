@@ -5,7 +5,7 @@ Alertsmall::Application.routes.draw do
   get "sessions/failure"
 
   resources :tweets
-
+  match '/admin', :to => 'tweets#index', :via => [:get]
   get '/auth/failure'=> 'tweets#new'
   get 'auth/:provider/callback' => 'tweets#new'
 

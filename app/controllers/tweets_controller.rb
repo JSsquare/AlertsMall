@@ -23,7 +23,7 @@ class TweetsController < ApplicationController
       params[:tweet][:johndoe] = false
       session[:auth_hash] =  request.env['omniauth.auth']
     end
-    tweet_post(tweet_params) if posted?
+    publish_tweet(tweet_params) if want_to_post?
     @tweet = Tweet.new(params[:tweet])
     respond_to do |format|
       if @tweet.save
@@ -37,7 +37,7 @@ class TweetsController < ApplicationController
 
   end
 
-  def posted?
+  def want_to_post?
     if params[:tweet][:username].present? and params[:tweet][:johndoe] == false
       params[:tweet][:posted] = true
       return true
@@ -46,8 +46,11 @@ class TweetsController < ApplicationController
     end
   end
 
+  def tweet_params
+    params.require(:tweet).permit(:body, :username)
+  end
 
-  def tweet_post(tweet_params)
+  def publish_tweet(tweet_params)
     consumer_key = "dSMJ2nkOj87ooiWrQKzTSw"
     consumer_key_secret = "74Q6R7yVM3E0rglcvSbWdzfnYKfSybTlkB8TO4XJY"
     access_token = "2357901931-ybQJGkicqvpIYwbeYpuBu9DJUoVqzTfEVyw83JE"
@@ -63,9 +66,8 @@ class TweetsController < ApplicationController
     client.update(post_content)
   end
 
+  def admin_approve
 
-  def tweet_params
-    params.require(:tweet).permit(:body, :username)
   end
 
 
