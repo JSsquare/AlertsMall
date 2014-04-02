@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Howdy Foodie" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Everyone Is A Foodie | Post Your Reviews" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -55,16 +55,6 @@
           </div><!--/.nav-collapse -->
         </div>
       </div>
-      <p class="navbar-text pull-right">
-        <% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>.
-            <%#= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-        <% else %>
-            <%#= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-            <%#= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-        <% end %>
-      </p>
 
         </div>
 
@@ -72,6 +62,16 @@
         <div class="row">
           <div class="span9" style="width: 100%;">
             <%= bootstrap_flash %>
+            <p class="navbar-text pull-right">
+              <% if user_signed_in? %>
+                  Logged in as <strong><%= current_user.email %></strong>.
+                  <%#= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+              <% else %>
+                  <%#= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+                  <%#= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+              <% end %>
+            </p>
             <%= yield %>
           </div>
           <div class="span3">

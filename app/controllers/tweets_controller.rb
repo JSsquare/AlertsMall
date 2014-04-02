@@ -21,9 +21,11 @@ class TweetsController < ApplicationController
     if request.env['omniauth.auth'].present? or session[:username].present?
       params[:tweet][:provider] = 'twitter'
       params[:tweet][:johndoe] = false
+      params[:tweet][:username] = session[:username] || request.env['omniauth.auth']['info']['nickname']
       session[:auth_hash] =  request.env['omniauth.auth']
     end
-    publish_tweet(tweet_params) if want_to_post?
+   p "00000000000000000000000000000000 #{params[:tweet]}"
+    publish_tweet(tweet_params) if want_to_publish?
     @tweet = Tweet.new(params[:tweet])
     respond_to do |format|
       if @tweet.save
@@ -37,7 +39,7 @@ class TweetsController < ApplicationController
 
   end
 
-  def want_to_post?
+  def want_to_publish?
     if params[:tweet][:username].present? and params[:tweet][:johndoe] == false
       params[:tweet][:posted] = true
       return true
@@ -66,8 +68,9 @@ class TweetsController < ApplicationController
     client.update(post_content)
   end
 
-  def admin_approve
 
+  def admin_approve
+      p "ljvssssssssssssssssssssssssssssssssssssssssssssssssss #{params["tweet"]["tweet_details"].class}"
   end
 
 

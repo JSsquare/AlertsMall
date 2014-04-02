@@ -2,16 +2,19 @@
 
 <table class="table table-hover">
   <tr>
-    <th>Tweet</th>
-    <th>John Doe</th>
+    <th>Content</th>
+    <th>Post By?</th>
+    <th>Publish</th>
   </tr>
 
   <% @tweets.each do |tweet| %>
-      <%= form_for(tweet, :html => {:multipart => true, :class=> '.form-inline'} ) do |t| %>
+      <%= form_for(tweet, :url => admin_approve_path, :html => {:multipart => true, :class=> '.form-inline'}, :remote=>true ) do |t| %>
       <tr>
         <td><%= tweet.body %></td>
-        <td><%= tweet.johndoe%></td>
-        <td><%= %></td>
+        <td><%= tweet.johndoe? ? "JohnDoe" : tweet.username %></td>
+        <%= t.hidden_field :tweet_id, :value => tweet.id%>
+        <td><%= t.submit "Publish" unless tweet.posted? %><td>
+
       </tr>
   <% end %>
   <% end %>
