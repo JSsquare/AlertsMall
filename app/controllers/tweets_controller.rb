@@ -74,7 +74,7 @@ class TweetsController < ApplicationController
     tweetid_to_pubish = params["tweet"]["tweet_id"].to_i
     @tweet_details_to_publish = Tweet.find(tweetid_to_pubish)
     if @tweet_details_to_publish.update(posted: true)
-      #publish_tweet(@tweet_details_to_publish )
+      publish_tweet(@tweet_details_to_publish )
     end
   end
 
