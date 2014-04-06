@@ -1,21 +1,33 @@
 <h1>Listing Tweets</h1>
 
-<table class="table table-hover">
-  <tr>
-    <th>Content</th>
-    <th>Post By?</th>
-    <th>Publish</th>
-  </tr>
-
-  <% @tweets.each do |tweet| %>
-      <%= form_for(tweet, :url => admin_approve_path, :html => {:multipart => true, :class=> '.form-inline'}, :remote=>true ) do |t| %>
+<div id="div-for-tweetlist">
+    <table class="table table-hover">
       <tr>
-        <td><%= tweet.body %></td>
-        <td><%= tweet.johndoe? ? "JohnDoe" : tweet.username %></td>
-        <%= t.hidden_field :tweet_id, :value => tweet.id%>
-        <td><%= t.submit "Publish" unless tweet.posted? %><td>
-
+        <th>Content</th>
+        <th>Post By?</th>
+        <th>Publish</th>
       </tr>
-  <% end %>
-  <% end %>
-</table>
+
+      <% @tweets.each do |tweet| %>
+          <%= form_for(tweet, :url => admin_approve_path, :html => {:multipart => true, :class=> 'tweet-form-inline'}, :remote=>true ) do |t| %>
+          <tr>
+            <td><%= tweet.body %></td>
+            <td><%= tweet.johndoe? ? "JohnDoe" : tweet.username %></td>
+            <%= t.hidden_field :tweet_id, :value => tweet.id%>
+            <td><%= t.submit "Publish", :class=> 'publish-button' unless tweet.posted? %><td>
+
+          </tr>
+      <% end %>
+      <% end %>
+    </table>
+</div>
+
+
+
+<script>
+
+    $(".publish-button").click(function () {
+        location.reload();
+    });
+
+</script>

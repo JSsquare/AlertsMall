@@ -3,7 +3,7 @@ class TweetsController < ApplicationController
   before_filter :authenticate_user!, :only => [:index]
 
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.order(created_at: :desc)
     respond_to do |format|
       format.html
       format.xml { render :xml => @tweet }
@@ -24,7 +24,7 @@ class TweetsController < ApplicationController
       params[:tweet][:username] = session[:username] || request.env['omniauth.auth']['info']['nickname']
       session[:auth_hash] =  request.env['omniauth.auth']
     end
-   p "00000000000000000000000000000000 #{params[:tweet]}"
+
     publish_tweet(tweet_params) if want_to_publish?
     @tweet = Tweet.new(params[:tweet])
     respond_to do |format|
@@ -64,13 +64,18 @@ class TweetsController < ApplicationController
       config.access_token        = access_token
       config.access_token_secret = access_token_secret
     end
-    post_content = tweet_params["username"].present? ? "#{tweet_params["body"]} via(@#{tweet_params["username"]})" : "#{tweet_params["body"]}"
-    client.update(post_content)
+    @via_mention = tweet_params["username"] == 'JohnDoe' ? 'via www.afoodie.me' : "via(@#{tweet_params["username"]})"
+    @post_content = "#{tweet_params["body"]} #{@via_mention}"
+    client.update(@post_content)
   end
 
 
   def admin_approve
-      p "ljvssssssssssssssssssssssssssssssssssssssssssssssssss #{params["tweet"]["tweet_details"].class}"
+    tweetid_to_pubish = params["tweet"]["tweet_id"].to_i
+    @tweet_details_to_publish = Tweet.find(tweetid_to_pubish)
+    if @tweet_details_to_publish.update(posted: true)
+      #publish_tweet(@tweet_details_to_publish )
+    end
   end
 
 
