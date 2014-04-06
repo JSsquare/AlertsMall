@@ -29,6 +29,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(params[:tweet])
     respond_to do |format|
       if @tweet.save
+        UserMailer.delay.someone_tweeted(@tweet.id)
         format.html { redirect_to new_tweet_path, notice: 'You just tweeted for AlertsMall' }
         format.json { render action: 'tweets/new', status: :created, location: @tweet }
       else

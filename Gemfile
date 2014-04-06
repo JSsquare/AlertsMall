@@ -5,6 +5,7 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 
+gem 'delayed_job_active_record'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'nifty-generators'
