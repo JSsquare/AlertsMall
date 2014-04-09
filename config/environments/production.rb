@@ -74,6 +74,10 @@ Alertsmall::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  config.after_initialize do
+    Delayed::Job.scaler = :heroku_cedar
+  end
+
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 
