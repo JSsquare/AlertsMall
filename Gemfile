@@ -6,6 +6,7 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 
 gem 'delayed_job_active_record'
+gem 'workless'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'nifty-generators'

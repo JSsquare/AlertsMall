@@ -52,10 +52,14 @@ GEM
       warden (~> 1.2.3)
     equalizer (0.0.9)
     erubis (2.7.0)
+    excon (0.32.1)
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     hashie (2.0.5)
+    heroku-api (0.3.18)
+      excon (~> 0.27)
+      multi_json (~> 1.8)
     hike (1.2.3)
     http (0.5.0)
       http_parser.rb
@@ -124,6 +128,8 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     ref (1.0.5)
+    rush (0.6.8)
+      session
     sass (3.2.14)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -132,6 +138,7 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    session (3.2.0)
     simple_oauth (0.2.0)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -176,6 +183,11 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    workless (1.2.3)
+      delayed_job (>= 2.0.7)
+      heroku-api
+      rails
+      rush
 
 PLATFORMS
   ruby
@@ -203,3 +215,4 @@ DEPENDENCIES
   twitter
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)
+  workless
