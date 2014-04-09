@@ -27,7 +27,7 @@ Alertsmall::Application.configure do
   config.active_record.migration_error = :page_load
 
   config.after_initialize do
-    Delayed::Job.scaler = :heroku_cedar
+    Delayed::Job.scaler = :local
   end
 
   # Debug mode disables concatenation and preprocessing of assets.

@@ -75,7 +75,7 @@ Alertsmall::Application.configure do
   config.active_support.deprecation = :notify
 
   config.after_initialize do
-    Delayed::Job.scaler = :heroku_cedar
+    Delayed::Job.scaler = :local
   end
 
   # Disable automatic flushing of the log to improve performance.
