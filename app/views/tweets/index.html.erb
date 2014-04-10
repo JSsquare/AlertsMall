@@ -1,6 +1,8 @@
 <h1>Listing Tweets</h1>
 
-<div id="div-for-tweetlist">
+<div id="div-for-tweetlist" >
+ <%= will_paginate @posts, :page_links => false  %>
+
     <table class="table table-hover">
       <tr>
         <th>Content</th>
@@ -20,6 +22,7 @@
       <% end %>
       <% end %>
     </table>
+
 </div>
 
 

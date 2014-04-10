@@ -3,7 +3,8 @@ class TweetsController < ApplicationController
   before_filter :authenticate_user!, :only => [:index]
 
   def index
-    @tweets = Tweet.order(created_at: :desc)
+    @tweets = Tweet.paginate(:page => params[:page],:per_page => 10)
+    #@tweets = Tweet.order(created_at: :desc)
     respond_to do |format|
       format.html
       format.xml { render :xml => @tweet }

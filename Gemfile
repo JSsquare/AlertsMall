@@ -12,6 +12,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'nifty-generators'
 gem 'protected_attributes'
+gem 'will_paginate', '~> 3.0'
 
 ruby '2.0.0'
 gem 'pg'

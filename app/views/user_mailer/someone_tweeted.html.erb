@@ -4,10 +4,14 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>Someone tweeted in aFoodie.me. Publish</h1>
+
 <p>
- Log into <%= link_to "Adimin", '/admin' %>
-  <br>
+ <%= @tweet.username %> tweeted from aFoodie.me        <br/>
+ Tweet Content: <%= @tweet.body %> <br/>
+ Tweet Date: <%= @tweet.created_at %><br/>
+ <% if @tweet.username == 'JohnDoe' %>
+    Log into Admin To <%= link_to "Publish", 'http://aFoodie.me/admin' %>
+ <%end%>
 </p>
 </body>
 </html>
