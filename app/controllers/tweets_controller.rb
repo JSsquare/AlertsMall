@@ -12,6 +12,7 @@ class TweetsController < ApplicationController
   end
 
   def new
+    @twitter_feed = CLIENT.user_timeline[0..4]
     session.clear if params["not_johndoe"]
     @username = session[:username]
     @tweet = Tweet.new
@@ -55,20 +56,9 @@ class TweetsController < ApplicationController
   end
 
   def publish_tweet(tweet_params)
-    consumer_key = "dSMJ2nkOj87ooiWrQKzTSw"
-    consumer_key_secret = "74Q6R7yVM3E0rglcvSbWdzfnYKfSybTlkB8TO4XJY"
-    access_token = "2357901931-ybQJGkicqvpIYwbeYpuBu9DJUoVqzTfEVyw83JE"
-    access_token_secret = "BsOY7trOw4roXaAkz1emYp2KTzvOVvoeubuODL1MNeLQH"
-
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = consumer_key
-      config.consumer_secret     = consumer_key_secret
-      config.access_token        = access_token
-      config.access_token_secret = access_token_secret
-    end
     @via_mention = tweet_params["username"] == 'JohnDoe' ? 'via www.afoodie.me' : "via(@#{tweet_params["username"]})"
     @post_content = "#{tweet_params["body"]} #{@via_mention}"
-    client.update(@post_content)
+    CLIENT.update(@post_content)
   end
 
 
