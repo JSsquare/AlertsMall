@@ -75,11 +75,19 @@ a:hover
     border-bottom-color: rgba(255,255,255,0);
 }
 
+.menu_icon{
+  height: 16px;
+}
+
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 960px) {
 
     .twitter-timeline{
         display: none;
+    }
+
+    .footer-container{
+        margin-left: auto;
     }
 
     #footer {

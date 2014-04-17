@@ -2,12 +2,15 @@
 <% if request.env["omniauth.auth"].present?
      @placeholder_text = "Post review via @#{request.env["omniauth.auth"]["info"]["nickname"]}...."
      @button_text = "Tweet"
+     @should_login = false
    elsif session[:username].present?
      @placeholder_text = "Post review via @#{session[:username]}...."
      @button_text = "Tweet"
+     @should_login = false
    else
      @placeholder_text = "Login or Be JohnDoe to post your review"
      @button_text = "Login"
+     @should_login = true
   end
 %>
 
@@ -20,7 +23,7 @@
 <%= form_for @tweet, :html => { :name => 'post-form', :class => 'form-horizontal' } do |f| %>
     <div class="control-group" style="text-align: center;">
       <div id="inner" >
-        <%= f.text_field :body, :class => 'text', :placeholder => "#{@placeholder_text}", :autocomplete => "off" %>
+           <%= f.text_field :body, :class => 'text', :placeholder => "#{@placeholder_text}", :autocomplete => "off" %>
         <div class="label-for-checkbox">
           <%if request.env["omniauth.auth"].nil? %>
               <%if @username.present? %>
