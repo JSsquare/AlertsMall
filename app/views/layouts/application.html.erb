@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -51,7 +51,10 @@
           <a href="http://twitter.com/PuneFoodAlerts" target="_blank"><%= image_tag("Twitter_logo_blue.png", class: "menu_icon") %></a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <!--<li></li>-->
+              <% if user_signed_in? %>
+              <li>   <%= link_to "User Reviews", admin_path, :class => 'navbar-link'  %></li>
+              <li>   <%= link_to "User Impressions", impressions_path, :class => 'navbar-link'  %></li>
+              <%end%>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -66,7 +69,6 @@
             <p class="navbar-text pull-right">
               <% if user_signed_in? %>
                   Logged in as <strong><%= current_user.email %></strong>.
-                  <%#= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
               <% else %>
                   <%#= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>

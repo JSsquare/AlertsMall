@@ -65,7 +65,11 @@ GEM
     http (0.5.0)
       http_parser.rb
     http_parser.rb (0.6.0)
+    httpclient (2.3.4.1)
     i18n (0.6.9)
+    impressionist (1.2.0)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.5)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -86,6 +90,7 @@ GEM
       thread_safe (~> 0.1.3)
     metaclass (0.0.4)
     mime-types (1.25.1)
+    mini_portile (0.5.3)
     minitest (4.7.5)
     mocha (1.0.0)
       metaclass (~> 0.0.1)
@@ -94,6 +99,8 @@ GEM
     mysql (2.9.1)
     naught (1.0.0)
     nifty-generators (0.4.6)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
     oauth (0.4.7)
     omniauth (1.2.1)
       hashie (>= 1.2, < 3)
@@ -200,6 +207,7 @@ DEPENDENCIES
   delayed_job_active_record
   devise
   execjs
+  impressionist (~> 1.2.0)
   jbuilder (~> 1.2)
   jquery-rails
   less-rails

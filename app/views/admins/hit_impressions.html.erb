@@ -1,0 +1,24 @@
+<h1>Hit Count</h1>
+<h3>Unique Hit Count <%= @unique_impression_count%></h3>
+
+
+<div id="div-for-tweetlist" >
+  <%= will_paginate @impressions, :page_links => false  %>
+
+  <table class="table table-hover">
+    <tr>
+      <th>IP</th>
+      <th>Session Hash</th>
+      <th>Date</th>
+    </tr>
+
+    <% @impressions.each do |impression| %>
+            <tr>
+              <td><%= impression.ip_address %></td>
+              <td><%= impression.session_hash%></td>
+              <td><%= impression.created_at.strftime("%m/%d/%Y %I:%M%p")%></td>
+            </tr>
+    <% end %>
+  </table>
+
+</div>
