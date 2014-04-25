@@ -88,6 +88,12 @@ a:hover
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 960px) {
 
+    .alert{
+        width: auto;
+        margin: auto;
+    }
+
+
     .twitter-timeline{
         display: none;
     }
@@ -104,4 +110,5 @@ a:hover
         padding-top: 50px;
         padding-right: 20px;
     }
+
 }
