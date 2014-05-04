@@ -14,10 +14,9 @@
   end
 %>
 
-<div class="page-header">
-  <%= image_tag("pageheader_orangepunklogo.jpg" ) %>
-  <h1 style="color: #668988; font-weight:lighter; text-align: center; font-family: sans-serif;"> Tweet Your Food Reviews</h1>
-  <!--<h1><%=t '.title', :default => [:'helpers.titles.new', '%{model} For @PuneFoodAlerts'], :model => model_class.model_name.human.titleize %></h1>-->
+<div class="page-header-new">
+  <%= image_tag("pageheader_morningmirror.jpg" ) %>
+
 </div>
 
 <%= form_for @tweet, :html => { :name => 'post-form', :class => 'form-horizontal' } do |f| %>
@@ -57,6 +56,7 @@
 
 <script>
     document['post-form'].action = "/auth/twitter";
+
     if($('#JohnDoe').is(':checked')){
         $('#tweet_body').show();
         document.getElementById("tweet_body").placeholder = "Write your review ...";
@@ -85,6 +85,7 @@
        if(document.getElementById("JohnDoe").checked == false){
            document['post-form'].action = "/auth/twitter";
        }
+
     });
 
     function handleClick(JohnDoe) {

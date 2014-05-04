@@ -11,7 +11,6 @@ class TweetsController < ApplicationController
   end
 
   def new
-    @twitter_feed = CLIENT.user_timeline[0..4]
     session.clear if params["not_johndoe"]
     @username = session[:username]
     @tweet = Tweet.new
@@ -26,6 +25,8 @@ class TweetsController < ApplicationController
       session[:auth_hash] =  request.env['omniauth.auth']
     end
 
+    validate_tweet_body params[:tweet][:body]
+
     publish_tweet(tweet_params) if want_to_publish?
     @tweet = Tweet.new(params[:tweet])
     respond_to do |format|
@@ -38,6 +39,11 @@ class TweetsController < ApplicationController
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
       end
     end
+
+  end
+
+  def validate_tweet_body tweet_params
+
 
   end
 
@@ -64,9 +70,11 @@ class TweetsController < ApplicationController
   def admin_approve
     tweetid_to_pubish = params["tweet"]["tweet_id"].to_i
     @tweet_details_to_publish = Tweet.find(tweetid_to_pubish)
+
     if @tweet_details_to_publish.update(posted: true)
       publish_tweet(@tweet_details_to_publish )
     end
+
   end
 
 

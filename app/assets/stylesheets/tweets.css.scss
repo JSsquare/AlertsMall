@@ -2,13 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.page-header{
+.page-header-new{
   margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
-  width: 50%;
+  width: 60%;
   text-align: center;
-  box-shadow: 2px 2px 20px #66757F;
+  box-shadow: 0px 0px 0px #8CB046;
 }
 
 h1,h2,h3,h4,h5,h6
@@ -25,7 +25,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
 }
 
 .label-for-tweet {
-  color: #66757F;
+  color: #8CB046;
   font-size: 24px;
   font-weight: 200;
   line-height: 22px;
@@ -40,7 +40,7 @@ input.checkbox{
 }
 
 .label-for-checkbox {
-  color: #668988;
+  color: #698338;
   font-size: 13px;
   font-weight: 200;
   line-height: 46px;
@@ -50,6 +50,7 @@ input.checkbox{
   width: 100%;
 
 }
+//#8CB046
 
 .tweet-form .tweet-btn {
   display: inline-block;
@@ -156,14 +157,14 @@ form ul.actions
   color: #fff !important;
   text-decoration: none;
   padding: 0.75em 2.5em 0.75em 2.5em;
-  background-color: #8ebebc;
+  background-color: #8CB046;
   border: 0;
   cursor: pointer;
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.30));
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.30));
-  background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.30));
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.30));
-  background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.30));
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15));
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15));
+  background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15));
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15));
+  background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15));
   -moz-transition: background-color 0.35s ease-in-out;
   -webkit-transition: background-color 0.35s ease-in-out;
   -o-transition: background-color 0.35s ease-in-out;
@@ -225,7 +226,7 @@ a:hover
     padding: 0.90em;
   }
 
-  .page-header
+  .page-header-new
   {
     width: 100%;
   }
