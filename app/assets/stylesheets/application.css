@@ -32,6 +32,13 @@ width: 30%;
 height: 95%;
 }
 
+.fb-like-box{
+    float: left;
+    margin-left: 0.5em;
+    width: 30%;
+    height: 95%;
+}
+
 /* Set the fixed height of the footer here */
 #push{
     height: 180px;
@@ -93,7 +100,9 @@ a:hover
         margin: auto;
     }
 
-
+    .fb-like-box{
+        display: none;
+    }
     .twitter-timeline{
         display: none;
     }
