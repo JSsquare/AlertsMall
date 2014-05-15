@@ -1,4 +1,9 @@
 == README
+aFoodie.Me - Bringing food reviewing to Social Media
+
+twitter - @PuneFoodAlerts
+facebook - fb.com/aFoodie.Me
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
