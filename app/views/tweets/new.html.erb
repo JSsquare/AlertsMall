@@ -1,14 +1,14 @@
 <%- model_class = Tweet -%>
 <% if request.env["omniauth.auth"].present?
      @placeholder_text = "Post review via @#{request.env["omniauth.auth"]["info"]["nickname"]}...."
-     @button_text = "Tweet"
+     @button_text = "Post Review"
      @should_login = false
    elsif session[:username].present?
      @placeholder_text = "Post review via @#{session[:username]}...."
-     @button_text = "Tweet"
+     @button_text = "Post Review"
      @should_login = false
    else
-     @placeholder_text = "Login or Be JohnDoe to post your review"
+     @placeholder_text = "Sign In or Be JohnDoe"
      @button_text = "Login"
      @should_login = true
   end
@@ -27,7 +27,7 @@
           <%if request.env["omniauth.auth"].nil? %>
               <%if @username.present? %>
                   <input type="hidden" id="tweet_username" name="tweet[username]" value=<%= @username%>>
-                  <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_johndoe: true) %>
+                  <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_johndoe: true), class: "anchor-style" %>
               <%else%>
                   <label class="label-for-checkbox">
                   <input id="JohnDoe" class="checkbox" type="checkbox" onclick="handleClick(this);" <%if params[:not_johndoe] %>checked="checked"<%end %>>
@@ -42,7 +42,17 @@
           <%end%>
         </div>
 
-        <%= f.submit "#{@button_text}", :class => 'button', :id =>"tweet_or_login" %>
+
+          <div class="social-buttons span4 offset4" id="social-buttons">
+            <a class="btn btn-twitter btn-block" href="/auth/twitter">Sign in with Twitter</a>
+            <a class="btn btn-facebook btn-block" href="/auth/facebook"><i class="fa fa-facebook"></i>Sign in with Facebook</a>
+          </div>
+
+            <%= f.submit "#{@button_text}", :class => 'button', :id =>"tweet_or_login" %>
+
+
+
+
 
       </div>
 
@@ -55,12 +65,22 @@
 
 
 <script>
+    <%if request.env["omniauth.auth"].present? or session[:username].present? %>
+        $('#social-buttons').hide();
+        $('#tweet_or_login').show();
+    <%else%>
+
+        $('#social-buttons').show();
+    <%end%>
+
+
     document['post-form'].action = "/auth/twitter";
 
     if($('#JohnDoe').is(':checked')){
         $('#tweet_body').show();
+        $('#social-buttons').hide();
         document.getElementById("tweet_body").placeholder = "Write your review ...";
-        document.getElementById("tweet_or_login").value = "Tweet";
+        document.getElementById("tweet_or_login").value = "Post Review";
         document['post-form'].action = "/tweets";
     }
     else
@@ -82,6 +102,7 @@
     }
 
     $(document).ready(function(){
+
        if(document.getElementById("JohnDoe").checked == false){
            document['post-form'].action = "/auth/twitter";
        }
@@ -91,13 +112,17 @@
     function handleClick(JohnDoe) {
         if(JohnDoe.checked){
             $("#tweet_body").attr('disabled',false);
+            $('#social-buttons').hide();
+            $('#tweet_or_login').show();
             document.getElementById("tweet_body").placeholder = "Write your review ...";
-            document.getElementById("tweet_or_login").value = "Tweet";
+            document.getElementById("tweet_or_login").value = "Post Review";
             document['post-form'].action = "/tweets";
         }
         if(JohnDoe.checked == false) {
             $("#tweet_body").attr('disabled',true);
-            document.getElementById("tweet_body").placeholder = "Login or Be JohnDoe to post your review";
+            $('#social-buttons').show();
+            $('#tweet_or_login').hide();
+            document.getElementById("tweet_body").placeholder = "Sign In or Be JohnDoe";
             document.getElementById("tweet_or_login").value = "Login";
             document['post-form'].action = "/auth/twitter";
         }

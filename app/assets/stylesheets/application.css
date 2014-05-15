@@ -59,7 +59,7 @@ margin-left: 20%;
     text-align: center;
 }
 
-a
+.anchor-style
 {
     text-decoration: none;
     color: #FFFFFF;
@@ -74,7 +74,7 @@ a
     padding-left: 0px;
 }
 
-a:hover
+.anchor-style:hover
 {
     text-decoration: none;
     color: #668988 !important;

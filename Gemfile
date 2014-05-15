@@ -4,12 +4,14 @@ gem 'twitter'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem "font-awesome-rails"
 
 gem 'delayed_job_active_record'
 gem 'workless'
 gem 'daemons'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 gem 'nifty-generators'
 gem 'protected_attributes'
 gem 'will_paginate', '~> 3.0'

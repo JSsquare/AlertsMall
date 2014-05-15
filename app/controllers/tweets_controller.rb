@@ -11,6 +11,7 @@ class TweetsController < ApplicationController
   end
 
   def new
+    p "---------------------------------------- #{request.env['omniauth.auth'].inspect}"
     session.clear if params["not_johndoe"]
     @username = session[:username]
     @tweet = Tweet.new

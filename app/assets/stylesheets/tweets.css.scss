@@ -85,7 +85,6 @@ textarea
   margin: auto;
   -webkit-appearance: none;
   display: block;
-  border: 0;
   background: #f5f5f5;
   width: 600px;
   padding: 0.90em;
@@ -189,7 +188,7 @@ form ul.actions
   width: 100%;
 }
 
-a
+.anchor-style
 {
   text-decoration: none;
   color: inherit;
@@ -204,7 +203,7 @@ a
   padding-left: 0px;
 }
 
-a:hover
+.anchor-style:hover
 {
   text-decoration: none;
   color: #0084B4;
@@ -214,6 +213,10 @@ a:hover
 
 #tweet_body{
   display: none;
+}
+
+.span4 {
+  width: 370px;
 }
 
 @media (max-width: 960px) {
@@ -229,6 +232,10 @@ a:hover
   .page-header-new
   {
     width: 100%;
+  }
+
+  .offset4 {
+   margin:auto;
   }
 
 }
