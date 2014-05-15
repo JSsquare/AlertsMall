@@ -69,8 +69,8 @@
         $('#social-buttons').hide();
         $('#tweet_or_login').show();
     <%else%>
-
         $('#social-buttons').show();
+        $('#tweet_or_login').hide();
     <%end%>
 
 
@@ -78,6 +78,7 @@
 
     if($('#JohnDoe').is(':checked')){
         $('#tweet_body').show();
+        $('#tweet_or_login').show();
         $('#social-buttons').hide();
         document.getElementById("tweet_body").placeholder = "Write your review ...";
         document.getElementById("tweet_or_login").value = "Post Review";
