@@ -11,7 +11,6 @@ class TweetsController < ApplicationController
   end
 
   def new
-    p "---------------------------------------- #{request.env['omniauth.auth'].inspect}"
     session.clear if params["not_johndoe"]
     @username = session[:username]
     @tweet = Tweet.new
@@ -19,33 +18,68 @@ class TweetsController < ApplicationController
 
   def create
     session[:username] = tweet_params["username"].present? ?  tweet_params["username"] : false
+
+    # WHEN JohnDoe is false
     if request.env['omniauth.auth'].present? or session[:username].present?
       params[:tweet][:provider] = 'twitter'
       params[:tweet][:johndoe] = false
       params[:tweet][:username] = session[:username] || request.env['omniauth.auth']['info']['nickname']
       session[:auth_hash] =  request.env['omniauth.auth']
+    else
+      params[:tweet][:username] = 'JohnDoe'
     end
 
-    validate_tweet_body params[:tweet][:body]
+    @post_content = formulate_post_content tweet_params["username"], tweet_params["body"]
 
-    publish_tweet(tweet_params) if want_to_publish?
+    want_to_publish? #This is for assigning :posted field
+
     @tweet = Tweet.new(params[:tweet])
     respond_to do |format|
-      if @tweet.save
-        UserMailer.delay.someone_tweeted(@tweet.id)
-        format.html { redirect_to new_tweet_path, notice: 'You just tweeted for AlertsMall' }
-        format.json { render action: 'tweets/new', status: :created, location: @tweet }
+      unless  validate_tweet_body? @post_content
+        format.html { redirect_to new_tweet_path , alert: "<b>SORRY!! THE PLATE IS FULL</b><br/>Not more than 140 characters." }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @tweet.errors, status: :unprocessable_entity }
+        unless validate_username_count? tweet_params["username"]
+         format.html { redirect_to new_tweet_path , alert: "<b><u>SORRY!! NO SECOND HELPING</u></b><br/>Review as John Doe or come back tomorrow" }
+        else
+          if @tweet.save
+            UserMailer.delay.someone_tweeted(@tweet.id)
+            publish_tweet @post_content if want_to_publish?
+            flash_message_after_review = want_to_publish? ? "<b><u>BULLSEYE!!</u></b><br/>Your review has been posted on to feeds. Thank you" : "<b><u>FOOD COP @ WORK!!</u></b> <br/> Your review is being supervised for approval<br/> Keep watching the space"
+            format.html { redirect_to new_tweet_path, notice: "#{flash_message_after_review}" }
+            format.json { render action: 'tweets/new', status: :created, location: @tweet }
+          else
+            format.html { redirect_to new_tweet_path , alert: 'Oops Sorry! Something went wrong. Contact me!' }
+          end
+        end
       end
     end
 
   end
 
-  def validate_tweet_body tweet_params
+  def formulate_post_content username, post_body
+    @via_mention = username == 'JohnDoe' ? '(via www.aFoodie.Me)' : "via(@#{username})"
+    return @post_content_formulated = "#{post_body} #{@via_mention}"
+  end
 
 
+  def validate_tweet_body? post_content
+    if post_content.length > 140
+        false
+      else
+        true
+    end
+  end
+
+  def validate_username_count? username
+    if username == 'JohnDoe'
+      true
+    else
+      if Tweet.where("created_at >= ? AND username='#{username}'", Time.zone.now.beginning_of_day).present?
+        false
+      else
+        true
+      end
+    end
   end
 
   def want_to_publish?
@@ -61,21 +95,18 @@ class TweetsController < ApplicationController
     params.require(:tweet).permit(:body, :username)
   end
 
-  def publish_tweet(tweet_params)
-    @via_mention = tweet_params["username"] == 'JohnDoe' ? 'via www.afoodie.me' : "via(@#{tweet_params["username"]})"
-    @post_content = "#{tweet_params["body"]} #{@via_mention}"
-    CLIENT.update(@post_content)
+  def publish_tweet post_content
+    CLIENT.update(post_content)
   end
 
 
   def admin_approve
-    tweetid_to_pubish = params["tweet"]["tweet_id"].to_i
-    @tweet_details_to_publish = Tweet.find(tweetid_to_pubish)
+    tweet_id_to_pubish = params["tweet"]["tweet_id"].to_i
+    @tweet_details_to_publish = Tweet.find(tweet_id_to_pubish)
 
     if @tweet_details_to_publish.update(posted: true)
-      publish_tweet(@tweet_details_to_publish )
+      publish_tweet formulate_post_content @tweet_details_to_publish.username, @tweet_details_to_publish.body
     end
-
   end
 
 

@@ -26,10 +26,10 @@
 }
 
 .twitter-timeline{
-float: right;
-margin-right: 0.5em;
-width: 30%;
-height: 95%;
+    float: right;
+    margin-right: 0.5em;
+    width: 30%;
+    height: 95%;
 }
 
 .fb-like-box{
