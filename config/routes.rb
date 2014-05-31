@@ -8,6 +8,8 @@ Alertsmall::Application.routes.draw do
   match '/admin', :to => 'tweets#index', :via => [:get]
   match '/tweets/admin_approve' => 'tweets#admin_approve', :as =>'admin_approve', :via => [:patch]
   match '/admins/hit_impressions' => 'admins#hit_impressions', :as =>'impressions', :via => [:get]
+  match '/admins/blocked_users' => 'admins#blocked_users', :as =>'banned', :via => [:get]
+  match '/admins/block' => 'admins#block', :via => [:post]
   get '/auth/failure'=> 'tweets#new'
   get 'auth/:provider/callback' => 'tweets#new'
 

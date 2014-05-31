@@ -1,0 +1,51 @@
+<div id="div-for-tweetlist" >
+  <%= will_paginate @blocked_list %>
+  <% count = ((params[:page] || 1).to_i - 1) * 10  %>
+
+
+  <form class="form-inline" action="block" data-remote="true" id="block_users" method="post">
+      <legend style="color: #8b0000;">Block A User</legend>
+      <label>USERNAME</label><input type="text" placeholder="Username" name="username" id="block_username">
+      <label>PROVIDER<input type="text" placeholder="Twitter? Facebook?" name="provider" id="block_provider"></label>
+      <label>REASON?<input type="text" placeholder="Why are blocking the user?" name="reason" id="block_reason"></label>
+      <input style="color: #8b0000;" class="btn block-button" id="blocking_users" name="commit" type="submit" value="BLOCK!" />
+  </form>
+
+  <legend style="color: #006400;">Blocked Users List</legend>
+  <table class="table table-hover">
+    <tr>
+      <th>SL #</th>
+      <th>Username</th>
+      <th>Provider</th>
+      <th>Blocked Reason</th>
+      <th>Unblock</th>
+    </tr>
+
+    <% @blocked_list.each do |blocked_list| %>
+        <tr>
+          <td><%= count %></td>
+          <td><%= blocked_list.username %></td>
+          <td><%= blocked_list.provider %></td>
+          <td><%= blocked_list.reason %></td>
+            <form class="form-inline" action="block" data-remote="true" id="unblock_users" method="post">
+              <input type="hidden" name="tableid_to_unblock" id="blocklist_id" value=<%= blocked_list.id %>>
+           <td><input style="color: #006400;" class="btn block-button" id="unblock" name="commit" type="submit" value="UNBLOCK!" /></td>
+            </form>
+
+        </tr>
+        <% count += 1 %>
+    <% end %>
+  </table>
+
+</div>
+
+
+
+
+<script>
+
+    $(".block-button").click(function () {
+        location.reload();
+    });
+
+</script>

@@ -1,24 +1,27 @@
-<h1>Listing Tweets</h1>
+<h2>MANAGE REVIEWS </h2>
 
 <div id="div-for-tweetlist" >
- <%= will_paginate @posts, :page_links => false  %>
+ <%= will_paginate @posts %>
 
     <table class="table table-hover">
       <tr>
+        <th>SL #</th>
         <th>Content</th>
         <th>Post By?</th>
         <th>Publish</th>
       </tr>
-
+      <% count = ((params[:page] || 1).to_i - 1) * 10  %>
       <% @tweets.each do |tweet| %>
           <%= form_for(tweet, :url => admin_approve_path, :html => {:multipart => true, :class=> 'tweet-form-inline'}, :remote=>true ) do |t| %>
           <tr>
+            <td><%= count %></td>
             <td><%= tweet.body %></td>
             <td><%= tweet.johndoe? ? "JohnDoe" : tweet.username %></td>
             <%= t.hidden_field :tweet_id, :value => tweet.id%>
             <td><%= t.submit "Publish", :class=> 'publish-button' unless tweet.posted? %><td>
 
           </tr>
+          <% count += 1 %>
       <% end %>
       <% end %>
     </table>

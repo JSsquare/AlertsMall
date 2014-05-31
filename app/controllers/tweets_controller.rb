@@ -31,15 +31,18 @@ class TweetsController < ApplicationController
 
     @post_content = formulate_post_content tweet_params["username"], tweet_params["body"]
 
-    want_to_publish? #This is for assigning :posted field
+    want_to_publish? #This is for assigning :posted field to true or false
 
     @tweet = Tweet.new(params[:tweet])
     respond_to do |format|
-      unless  validate_tweet_body? @post_content
-        format.html { redirect_to new_tweet_path , alert: "<b>SORRY!! THE PLATE IS FULL</b><br/>Not more than 140 characters." }
+      if blocked_user? tweet_params["username"]
+        format.html { redirect_to new_tweet_path , alert: "<b><u>YOU ARE BLOCKED!!</u></b><br/>Contact me to know the reason." }
       else
-        unless validate_username_count? tweet_params["username"]
-         format.html { redirect_to new_tweet_path , alert: "<b><u>SORRY!! NO SECOND HELPING</u></b><br/>Review as John Doe or come back tomorrow" }
+        unless  validate_tweet_body? @post_content
+         format.html { redirect_to new_tweet_path , alert: "<b>SORRY!! THE PLATE IS FULL</b><br/>Not more than 140 characters." }
+        else
+          unless validate_username_count? tweet_params["username"]
+            format.html { redirect_to new_tweet_path , alert: "<b><u>SORRY!! NO SECOND HELPING</u></b><br/>Review as John Doe or come back tomorrow" }
         else
           if @tweet.save
             UserMailer.delay.someone_tweeted(@tweet.id)
@@ -50,8 +53,9 @@ class TweetsController < ApplicationController
           else
             format.html { redirect_to new_tweet_path , alert: 'Oops Sorry! Something went wrong. Contact me!' }
           end
+         end
         end
-      end
+        end
     end
 
   end
@@ -61,26 +65,6 @@ class TweetsController < ApplicationController
     return @post_content_formulated = "#{post_body} #{@via_mention}"
   end
 
-
-  def validate_tweet_body? post_content
-    if post_content.length > 140
-        false
-      else
-        true
-    end
-  end
-
-  def validate_username_count? username
-    if username == 'JohnDoe'
-      true
-    else
-      if Tweet.where("created_at >= ? AND username='#{username}'", Time.zone.now.beginning_of_day).present?
-        false
-      else
-        true
-      end
-    end
-  end
 
   def want_to_publish?
     if params[:tweet][:username].present? and params[:tweet][:johndoe] == false
@@ -106,6 +90,36 @@ class TweetsController < ApplicationController
 
     if @tweet_details_to_publish.update(posted: true)
       publish_tweet formulate_post_content @tweet_details_to_publish.username, @tweet_details_to_publish.body
+    end
+  end
+
+
+#VALIDATION METHODS CAN BE SHIFTED TO MODEL. LEARN HOW
+
+  def blocked_user? username
+    @blocked_user_records = BlockedUsers.all
+    @blocked_usernames = @blocked_user_records.pluck(:username)
+    return @blocked_usernames.any?{ |s| s.casecmp(username)==0 }
+  end
+
+
+  def validate_tweet_body? post_content
+    if post_content.length > 140
+      false
+    else
+      true
+    end
+  end
+
+  def validate_username_count? username
+    if username == 'JohnDoe'
+      true
+    else
+      if Tweet.where("created_at >= ? AND username='#{username}'", Time.zone.now.beginning_of_day).present?
+        false
+      else
+        true
+      end
     end
   end
 

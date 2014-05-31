@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "#EveryoneIsAFoodie" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "#EveryoneIsAFoodie - Crowdsourcing Food Reviews - aFoodie.Me" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -40,6 +40,7 @@
               <% if user_signed_in? %>
               <li>   <%= link_to "User Reviews", admin_path, :class => 'navbar-link'  %></li>
               <li>   <%= link_to "User Impressions", impressions_path, :class => 'navbar-link'  %></li>
+              <li>   <%= link_to "Blocked Users", banned_path, :class => 'navbar-link'  %></li>
               <%end%>
             </ul>
           </div><!--/.nav-collapse -->
@@ -72,7 +73,7 @@
         <%= render 'tweets/tweet_feeds' %>
         <%= render 'tweets/facebook_box'%>
         <div align="center" class="footer-container">
-        <p>&copy; #EveryoneIsAFoodie 2014 </p><p>Website by <a href="http://www.twitter.com/HandleChanger" target="_blank" class="anchor-style">Johnny</a> in <a href="http://rubyonrails.org/" target="_blank" class="anchor-style">RoR</a></p>
+        <p>&copy; #EveryoneIsAFoodie </p><p>Website by <a href="http://www.twitter.com/HandleChanger" target="_blank" class="anchor-style">Johnny</a> in <a href="http://rubyonrails.org/" target="_blank" class="anchor-style">RoR</a></p>
         </div>
       </div>
 

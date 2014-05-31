@@ -4,7 +4,30 @@ class AdminsController < ApplicationController
  def hit_impressions
    @unique_impression_count = Impression.count('session_hash', :distinct => true)
    @impressions = Impression.paginate(:page => params[:page],:per_page => 10)
-
  end
+
+  def blocked_users
+    @blocked_list = BlockedUsers.paginate(:page => params[:page],:per_page => 10)
+  end
+
+  def block
+    if params[:tableid_to_unblock].present?
+      BlockedUsers.find(params[:tableid_to_unblock]).destroy
+    else
+      params[:username] = params[:username].strip
+      @blocked_users = BlockedUsers.new(params)
+      respond_to do |format|
+        if params[:username].present? and params[:provider].present?
+          if @blocked_users.save
+            format.html { redirect_to banned_path }
+          else
+            format.html { redirect_to banned_path, alert: "Could not add to block list. Inform Johnny!!" }
+          end
+        else
+          format.html { redirect_to banned_path, alert: "Username/Provider not entered" }
+        end
+      end
+    end
+  end
 
 end
