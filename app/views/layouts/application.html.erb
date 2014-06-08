@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "#EveryoneIsAFoodie - Crowdsourcing Food Reviews - aFoodie.Me" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "#EveryoneIsAFoodie - Crowdsourcing Food Reviews" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -29,12 +29,17 @@
         <div class="container">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
           </a>
           <p class="brand" ><%= link_to "#EveryoneIsAFoodie", "#"%></p>
-          <a href="https://facebook.com/aFoodie.Me" target="_blank"><%= image_tag("fb_logo_blue.png", class: "menu_icon") %></a>
-          <a href="https://twitter.com/PuneFoodAlerts/status/419190747238117376/photo/1" target="_blank"><%= image_tag("Twitter_logo_blue.png", class: "menu_icon") %></a>
+          <a href="https://facebook.com/aFoodie.Me" target="_blank">
+            <img id="fb" src="/assets/facebooka.png" onmouseover="this.src='/assets/facebook.png'" onmouseout="this.src='/assets/facebooka.png'"/>
+          </a>
+          <a href="https://twitter.com/PuneFoodAlerts/status/419190747238117376/photo/1" target="_blank" class="social">
+            <img id="tw" src="/assets/twittera.png" onmouseover="this.src='/assets/twitter.png'" onmouseout="this.src='/assets/twittera.png'"/>
+          </a>
+          <!--ALERTNATE SOCIAL IMAGE ICONS-->
+          <!--<a href="https://facebook.com/aFoodie.Me" target="_blank"><%= image_tag("fb_logo_blue.png", class: "menu_icon") %></a>-->
+          <!--<a href="https://twitter.com/PuneFoodAlerts/status/419190747238117376/photo/1" target="_blank"><%= image_tag("Twitter_logo_blue.png", class: "menu_icon") %></a>-->
           <div class="container nav-collapse">
             <ul class="nav">
               <% if user_signed_in? %>
@@ -71,13 +76,19 @@
     <div id="push"></div>
       <div id="footer">
         <%= render 'tweets/tweet_feeds' %>
-        <%= render 'tweets/facebook_box'%>
+        <%= render 'tweets/facebook_box'%>  <br/>
         <div align="center" class="footer-container">
         <p>&copy; #EveryoneIsAFoodie </p><p>Website by <a href="http://www.twitter.com/HandleChanger" target="_blank" class="anchor-style">Johnny</a> in <a href="http://rubyonrails.org/" target="_blank" class="anchor-style">RoR</a></p>
         </div>
+        <div class="stay-connected-form">
+          <p class="connect-text"><b>CONNECT WITH US</b></p>
+          <input style="padding: 0.5em;" class="connect-text-box" type="text" placeholder="Enter E-mail or Mobile #">
+           <button style="margin-bottom: 0.8%; padding-bottom: 7px;" class="btn connect-button btn-success disabled" type="submit"><i class="icon-large icon-white icon-envelope"></i></button>
+           </span>
+          </p>
+        </div>
+
       </div>
-
-
 
   </body>
 </html>
