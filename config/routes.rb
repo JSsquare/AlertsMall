@@ -10,6 +10,7 @@ Alertsmall::Application.routes.draw do
   match '/admins/hit_impressions' => 'admins#hit_impressions', :as =>'impressions', :via => [:get]
   match '/admins/blocked_users' => 'admins#blocked_users', :as =>'banned', :via => [:get]
   match '/admins/block' => 'admins#block', :via => [:post]
+  match '/tweets/connect_users' => 'tweets#connect_users', :as=>'connectingyou', :via => [:post]
   get '/auth/failure'=> 'tweets#new'
   get 'auth/:provider/callback' => 'tweets#new'
 

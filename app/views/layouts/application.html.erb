@@ -82,8 +82,11 @@
         </div>
         <div class="stay-connected-form">
           <p class="connect-text"><b>CONNECT WITH US</b></p>
-          <input style="padding: 0.5em;" class="connect-text-box" type="text" placeholder="Enter E-mail or Mobile #">
-           <button style="margin-bottom: 0.8%; padding-bottom: 7px;" class="btn connect-button btn-success disabled" type="submit"><i class="icon-large icon-white icon-envelope"></i></button>
+          <form data-remote="true" action="/tweets/connect_users" class="form-horizontal" id="new_connection" method="post" name="connect-form">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+            <input style="padding: 0.5em;" class="connect-text-box" type="email" name="connecting[info]" placeholder="Enter your e-mail">
+            <button style=" padding-bottom: 7px;" class="btn connect-button btn-success disabled" type="submit"><i class="icon-large icon-white icon-envelope"></i></button>
+           </form>
            </span>
           </p>
         </div>

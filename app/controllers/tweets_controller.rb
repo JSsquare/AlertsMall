@@ -93,6 +93,18 @@ class TweetsController < ApplicationController
     end
   end
 
+  def connect_users
+    params[:connecting][:mobilenumber] = false
+    @connected_user = ConnectedUserinfo.new(params[:connecting])
+
+    if @connected_user.save
+      render nothing: true
+    else
+      render nothing: true
+    end
+  end
+
+
 
 #VALIDATION METHODS CAN BE SHIFTED TO MODEL. LEARN HOW
 
