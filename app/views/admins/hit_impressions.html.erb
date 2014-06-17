@@ -20,7 +20,7 @@
               <td><%= count %></td>
               <td><%= impression.ip_address %></td>
               <td><%= Whois.whois(impression.ip_address).parser.parsers.to_s rescue "Info Unavailable ATM" %></td>
-              <td><%= impression.created_at.strftime("%m/%d/%Y %I:%M%p")%></td>
+              <td><%= (impression.created_at+5.hours+30.minutes).strftime("%m/%d/%Y %I:%M%p")%></td>
             </tr>
         <% count += 1 %>
     <% end %>

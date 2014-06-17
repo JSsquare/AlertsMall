@@ -32,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admins_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="admins_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/admins_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.0">
+            <state line="5" column="72" selection-start="259" selection-end="259" vertical-scroll-proportion="0.14534883">
               <folding />
             </state>
           </provider>
@@ -59,10 +59,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hit_impressions.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="hit_impressions.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admins/hit_impressions.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="105" selection-start="603" selection-end="603" vertical-scroll-proportion="0.6402439">
+            <state line="22" column="63" selection-start="676" selection-end="676" vertical-scroll-proportion="-13.75">
               <folding />
             </state>
           </provider>
@@ -135,13 +135,13 @@
         <option value="$PROJECT_DIR$/app/views/tweets/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/admins/blocked_users.html.erb" />
         <option value="$PROJECT_DIR$/app/views/tweets/_facebook_box.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/admins_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/tweets_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/models/connected_userinfo.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/views/admins/hit_impressions.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/admins_controller.rb" />
       </list>
     </option>
   </component>
@@ -751,23 +751,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/blocked_users.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="47" selection-start="41" selection-end="87" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/tweets_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="103" column="7" selection-start="3703" selection-end="3703" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admins_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -805,7 +791,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admins/hit_impressions.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="105" selection-start="603" selection-end="603" vertical-scroll-proportion="0.6402439">
+        <state line="22" column="63" selection-start="676" selection-end="676" vertical-scroll-proportion="-13.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/blocked_users.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="47" selection-start="41" selection-end="87" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admins_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="72" selection-start="259" selection-end="259" vertical-scroll-proportion="0.14534883">
           <folding />
         </state>
       </provider>

@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
 
  def hit_impressions
    @unique_impression_count = Impression.count('session_hash', :distinct => true)
-   @impressions = Impression.paginate(:page => params[:page],:per_page => 10)
+   @impressions = Impression.order('created_at DESC').page(params[:page])
  end
 
   def blocked_users
