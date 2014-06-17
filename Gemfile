@@ -16,6 +16,7 @@ gem 'nifty-generators'
 gem 'protected_attributes'
 gem 'will_paginate', '~> 3.0'
 gem 'impressionist', '~> 1.2.0'
+gem 'whois'
 
 ruby '2.0.0'
 gem 'pg'
