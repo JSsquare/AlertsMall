@@ -81,11 +81,13 @@
         <p>&copy; #EveryoneIsAFoodie </p><p>Website by <a href="http://www.twitter.com/HandleChanger" target="_blank" class="anchor-style">Johnny</a> in <a href="http://rubyonrails.org/" target="_blank" class="anchor-style">RoR</a></p>
         </div>
         <div class="stay-connected-form">
-          <p class="connect-text"><b>CONNECT WITH US</b></p>
+          <p class="connect-text"><b>STAY CONNECTED</b></p>
           <form data-remote="true" action="/tweets/connect_users" class="form-horizontal" id="new_connection" method="post" name="connect-form">
             <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-            <input style="padding: 0.5em;" class="connect-text-box" type="email" name="connecting[info]" placeholder="Enter your e-mail">
-            <button style=" padding-bottom: 7px;" class="btn connect-button btn-success disabled" type="submit"><i class="icon-large icon-white icon-envelope"></i></button>
+            <input style="padding: 0.5em;" id="connect-textbox" class="connect-text-box" type="email" name="connecting[info]" placeholder="Enter your e-mail">
+            <button style=" padding-bottom: 7px;" id="connect-id" class="btn connect-button btn-success disabled" type="submit"><i class="icon-large icon-white icon-envelope"></i></button>
+            <img style="display: none; height: 16px; width: 16px;" id="connect-loading" src="/assets/green-loading.gif" onmouseover="this.src='/assets/twitter.png'" onmouseout="this.src='/assets/twittera.png'"/>
+            <span style="display: none;" id="afterconnect-message" class="label label-success">THANK YOU! WE'LL KEEP YOU POSTED</span>
            </form>
            </span>
           </p>
@@ -94,4 +96,20 @@
       </div>
 
   </body>
+
+<script>
+    $('#connect-id').click(function(){
+        $('#connect-loading').show();
+        $('#connect-id').hide();
+        $.ajax({
+            success:function(result){
+            $('#connect-loading').hide();
+            $('#connect-textbox').hide();
+            $('#afterconnect-message').show();
+           }
+        })
+    })
+
+</script>
+
 </html>
