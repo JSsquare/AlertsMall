@@ -1,5 +1,5 @@
 <h1>Hit Count</h1>
-<h2>Unique User # <%= @unique_impression_count%></h2>
+<h2>Unique Users # <%= @unique_impression_count%></h2>
 
 
 <div id="div-for-tweetlist" >
@@ -10,7 +10,7 @@
   <table class="table table-hover">
     <tr>
       <th>SL #</th>
-      <th>IP</th>
+      <th>Country</th>
       <th>IP Description</th>
       <th>Date | Time</th>
     </tr>
@@ -18,8 +18,8 @@
     <% @impressions.each do |impression| %>
             <tr>
               <td><%= count %></td>
-              <td><%= impression.ip_address %></td>
-              <td><%= Whois.whois(impression.ip_address).parser.parsers.to_s rescue "Info Unavailable ATM" %></td>
+              <td><IMG style="width: 40px; height: 25px;" SRC="http://api.hostip.info/flag.php?ip=<%=impression.ip_address%>" ALT="IP Address Lookup"></td>
+              <td><%= locale = Timeout::timeout(7) { Net::HTTP.get_response(URI.parse('http://api.hostip.info/get_html.php?ip=' + impression.ip_address )).body } rescue "Info Unavailable ATM"%></td>
               <td><%= (impression.created_at+5.hours+30.minutes).strftime("%m/%d/%Y %I:%M%p")%></td>
             </tr>
         <% count += 1 %>

@@ -80,7 +80,7 @@
         $('#tweet_body').show();
         $('#tweet_or_login').show();
         $('#social-buttons').hide();
-        document.getElementById("tweet_body").placeholder = "Write your review ...";
+        document.getElementById("tweet_body").placeholder = "Write your review Eg: <<Dish Name>> <<Restaurant Name>> <<Other Thoughts>> <<#CityName>>";
         document.getElementById("tweet_or_login").value = "Post Review";
         document['post-form'].action = "/tweets";
     }
@@ -115,7 +115,7 @@
             $("#tweet_body").attr('disabled',false);
             $('#social-buttons').hide();
             $('#tweet_or_login').show();
-            document.getElementById("tweet_body").placeholder = "Write your review ...";
+            document.getElementById("tweet_body").placeholder = "Write Your Review. Eg: <<Dish Name>> <<Restaurant Name>> <<Other thoughts>> <<#CityName>>";
             document.getElementById("tweet_or_login").value = "Post Review";
             document['post-form'].action = "/tweets";
         }

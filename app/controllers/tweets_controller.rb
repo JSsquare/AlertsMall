@@ -98,6 +98,7 @@ class TweetsController < ApplicationController
     @connected_user = ConnectedUserinfo.new(params[:connecting])
 
     if @connected_user.save
+      UserMailer.delay.connecting_users(params[:connecting][:info])
       render nothing: true
     else
       render nothing: true
