@@ -7,6 +7,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def connecting_users user_mailid
+   attachments.inline['twittericon.png'] = File.read("#{Rails.root}/app/assets/images/twittera.png")
     mail(to: user_mailid, subject: "Burrrrrp!!!")
   end
 

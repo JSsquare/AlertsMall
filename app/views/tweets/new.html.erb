@@ -8,7 +8,7 @@
      @button_text = "Post Review"
      @should_login = false
    else
-     @placeholder_text = "Sign In or Be JohnDoe"
+     @placeholder_text = "Sign In or Be Anonymous"
      @button_text = "Login"
      @should_login = true
   end
@@ -21,6 +21,7 @@
 
 <%= form_for @tweet, :html => { :name => 'post-form', :class => 'form-horizontal' } do |f| %>
     <div class="control-group" style="text-align: center;">
+
       <div id="inner" >
            <%= f.text_field :body, :class => 'text', :placeholder => "#{@placeholder_text}", :autocomplete => "off" %>
         <div class="label-for-checkbox">
@@ -31,7 +32,7 @@
               <%else%>
                   <label class="label-for-checkbox">
                   <input id="JohnDoe" class="checkbox" type="checkbox" onclick="handleClick(this);" <%if params[:not_johndoe] %>checked="checked"<%end %>>
-                  Be JohnDoe
+                  Be Anonymous
                   </label>
               <%end%>
           <%else%>
@@ -123,7 +124,7 @@
             $("#tweet_body").attr('disabled',true);
             $('#social-buttons').show();
             $('#tweet_or_login').hide();
-            document.getElementById("tweet_body").placeholder = "Sign In or Be JohnDoe";
+            document.getElementById("tweet_body").placeholder = "Sign In or Be Anonymous";
             document.getElementById("tweet_or_login").value = "Login";
             document['post-form'].action = "/auth/twitter";
         }
