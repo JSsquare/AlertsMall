@@ -107,17 +107,16 @@ margin-left: 20%;
     color: #89BE89;
 }
 
+#website_brand_icon {
+    height: 25px;
+    width: 180px;
+}
+
 .social { display: inline-block; cursor: pointer; width: 32px; height: 32px; margin-right: 5px; }
 .facebook { background: url(/assets/facebooka.png) }
 .facebook:hover { background: url(/assets/facebooka.png) }
 .twitter { background: url(/assets/twittera.png) }
 .twitter:hover { background: url('/assets/twittera.png') }
-
-#website_brand_icon{
-    height: 25px;
-    width: 180px;
-}
-
               1
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 960px) {
