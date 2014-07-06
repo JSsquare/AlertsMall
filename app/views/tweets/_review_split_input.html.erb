@@ -1,0 +1,19 @@
+<div id="infoToggler">
+  <img src="/assets/liked.png"  width="25px" height="25px"/>
+  <img src="/assets/disliked.jpg"  width="25px" height="25px" style="display:none"/>
+</div>
+
+<input autocomplete="off" class="text" id="review_split" name="tweet[split]" placeholder="Sign In or Be Anonymous" type="text" />
+
+
+
+
+
+<script>
+
+    $(document).ready(function(){
+        $("#infoToggler").click(function() {
+            $(this).find('img').toggle();
+        });
+    });
+</script>

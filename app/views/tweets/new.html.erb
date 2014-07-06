@@ -8,7 +8,7 @@
      @button_text = "Post Review"
      @should_login = false
    else
-     @placeholder_text = "Sign In or Be Anonymous"
+     @placeholder_text = "sign in OR be anonymous"
      @button_text = "Login"
      @should_login = true
   end
@@ -23,6 +23,7 @@
     <div class="control-group" style="text-align: center;">
 
       <div id="inner" >
+            <%#= render 'tweets/review_split_input' %>
            <%= f.text_field :body, :class => 'text', :placeholder => "#{@placeholder_text}", :autocomplete => "off" %>
         <div class="label-for-checkbox">
           <%if request.env["omniauth.auth"].nil? %>
@@ -124,7 +125,7 @@
             $("#tweet_body").attr('disabled',true);
             $('#social-buttons').show();
             $('#tweet_or_login').hide();
-            document.getElementById("tweet_body").placeholder = "Sign In or Be Anonymous";
+            document.getElementById("tweet_body").placeholder = "sign in OR be anonymous";
             document.getElementById("tweet_or_login").value = "Login";
             document['post-form'].action = "/auth/twitter";
         }
