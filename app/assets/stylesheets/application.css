@@ -117,7 +117,7 @@ margin-left: 20%;
 .facebook:hover { background: url(/assets/facebooka.png) }
 .twitter { background: url(/assets/twittera.png) }
 .twitter:hover { background: url('/assets/twittera.png') }
-              1
+
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 960px) {
 
