@@ -16,7 +16,15 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
   end
 
+
+  def formulate_anonymous_reviews splitreview
+    opinion = splitreview['liked_dish'] == "true" ? "Liked" : "Disliked"
+    stiched_review = "#{opinion} #{splitreview['review_dishname'].titleize} at #{splitreview['review_placename'].titleize}, ##{splitreview['city']}. #{splitreview['review_thoughts']}"
+    return stiched_review
+  end
+
   def create
+    params[:tweet][:body] = formulate_anonymous_reviews params[:splitreview] if params[:splitreview][:its_anonymous]=="true"
     session[:username] = tweet_params["username"].present? ?  tweet_params["username"] : false
 
     # WHEN JohnDoe is false
@@ -36,13 +44,13 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(params[:tweet])
     respond_to do |format|
       if blocked_user? tweet_params["username"]
-        format.html { redirect_to new_tweet_path , alert: "<b><u>YOU ARE BLOCKED!!</u></b><br/>Contact me to know the reason." }
+        format.html { redirect_to new_tweet_path , alert: "<b><u>YOU ARE BLOCKED ASSHOLE!!</u></b><br/>Contact me to know the reason." }
       else
         unless  validate_tweet_body? @post_content
-         format.html { redirect_to new_tweet_path , alert: "<b>SORRY!! THE PLATE IS FULL</b><br/>Not more than 140 characters." }
+         format.html { redirect_to new_tweet_path , alert: "<b>IM SORRY!! YOUR PLATE IS FULL</b><br/>Not more than 140 characters." }
         else
           unless validate_username_count? tweet_params["username"]
-            format.html { redirect_to new_tweet_path , alert: "<b><u>SORRY!! NO SECOND HELPING</u></b><br/>Review as John Doe or come back tomorrow" }
+            format.html { redirect_to new_tweet_path , alert: "<b><u>OOPS SORRY!! NO SECOND HELPING</u></b><br/>Review as Anonymous or come back tomorrow" }
         else
           if @tweet.save
             UserMailer.delay.someone_tweeted(@tweet.id)
@@ -51,7 +59,7 @@ class TweetsController < ApplicationController
             format.html { redirect_to new_tweet_path, notice: "#{flash_message_after_review}" }
             format.json { render action: 'tweets/new', status: :created, location: @tweet }
           else
-            format.html { redirect_to new_tweet_path , alert: 'Oops Sorry! Something went wrong. Contact me!' }
+            format.html { redirect_to new_tweet_path , alert: "<b><u>YOUR PLATE LOOKS EMPTY!!</u></b><br/>Please type your review again." }
           end
          end
         end

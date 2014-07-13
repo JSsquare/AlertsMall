@@ -1,10 +1,10 @@
 <%- model_class = Tweet -%>
 <% if request.env["omniauth.auth"].present?
-     @placeholder_text = "Post review via @#{request.env["omniauth.auth"]["info"]["nickname"]}...."
+     @placeholder_text = "Type review in 140 characters (via @#{request.env["omniauth.auth"]["info"]["nickname"]})...."
      @button_text = "Post Review"
      @should_login = false
    elsif session[:username].present?
-     @placeholder_text = "Post review via @#{session[:username]}...."
+     @placeholder_text = "Type review in 140 characters (via @#{session[:username]})...."
      @button_text = "Post Review"
      @should_login = false
    else
@@ -23,8 +23,12 @@
     <div class="control-group" style="text-align: center;">
 
       <div id="inner" >
-            <%#= render 'tweets/review_split_input' %>
+        <div style="display: none;" id="split_review">
+            <%= render 'tweets/review_split_input' %>
+        </div>
+        <div id="fulltext_review">
            <%= f.text_field :body, :class => 'text', :placeholder => "#{@placeholder_text}", :autocomplete => "off" %>
+        </div>
         <div class="label-for-checkbox">
           <%if request.env["omniauth.auth"].nil? %>
               <%if @username.present? %>
@@ -82,9 +86,12 @@
         $('#tweet_body').show();
         $('#tweet_or_login').show();
         $('#social-buttons').hide();
-        document.getElementById("tweet_body").placeholder = "Write your review Eg: <<Dish Name>> <<Restaurant Name>> <<Other Thoughts>> <<#CityName>>";
+        $('#split_review').show();
+        $('#fulltext_review').hide();
+        $('#its_anonymous').val('true');
         document.getElementById("tweet_or_login").value = "Post Review";
         document['post-form'].action = "/tweets";
+
     }
     else
     {
@@ -117,7 +124,9 @@
             $("#tweet_body").attr('disabled',false);
             $('#social-buttons').hide();
             $('#tweet_or_login').show();
-            document.getElementById("tweet_body").placeholder = "Write Your Review. Eg: <<Dish Name>> <<Restaurant Name>> <<Other thoughts>> <<#CityName>>";
+            $('#split_review').show();
+            $('#fulltext_review').hide();
+            $('#its_anonymous').val('true');
             document.getElementById("tweet_or_login").value = "Post Review";
             document['post-form'].action = "/tweets";
         }
@@ -125,6 +134,9 @@
             $("#tweet_body").attr('disabled',true);
             $('#social-buttons').show();
             $('#tweet_or_login').hide();
+            $('#split_review').hide();
+            $('#fulltext_review').show();
+            $('#its_anonymous').val('false');
             document.getElementById("tweet_body").placeholder = "sign in OR be anonymous";
             document.getElementById("tweet_or_login").value = "Login";
             document['post-form'].action = "/auth/twitter";

@@ -1,11 +1,73 @@
+<input type="hidden" name="splitreview[its_anonymous]" id="its_anonymous" value="false">
 <div id="infoToggler">
   <img src="/assets/liked.png"  width="25px" height="25px"/>
   <img src="/assets/disliked.jpg"  width="25px" height="25px" style="display:none"/>
+  <label class="label-for-checkbox" id="disliked_label" style="margin-left: 4px; display: inline;">Liked</label>
+  <input type="hidden" name="splitreview[liked_dish]" id="liked_dish" value="true">
 </div>
+<input autocomplete="off" class="review_boxes" id="review_dishname" name="splitreview[review_dishname]" placeholder="Dish Name" type="text" />
+<input autocomplete="off" class="review_boxes" id="review_placename" name="splitreview[review_placename]" placeholder="Place Name" type="text" />
 
-<input autocomplete="off" class="text" id="review_split" name="tweet[split]" placeholder="Sign In or Be Anonymous" type="text" />
+<select name="splitreview[city]">
+  <option value="Pune" selected="selected">Select City</option>
+  <option value="Pune">Pune</option>
+  <option value="Mumbai">Bombay</option>
+</select>
+
+<input autocomplete="off" class="review_boxes" id="review_thoughts" name="splitreview[review_thoughts]" placeholder="Other thoughts" type="text" />
 
 
+<style>
+
+    select {
+        display:inline-block;
+        width:120px;
+        background-color:#f5f5f5;
+        border:none;
+        outline:none;
+        padding-top:8px;
+        margin-top:20px;
+        height:40px;
+        position:relative;
+    }
+
+    #infoToggler {
+        display: inline;
+        margin-right: 20px;
+    }
+
+    #review_dishname{
+        width: 180px;
+    }
+
+    #review_thoughts{
+        width: 290px;
+    }
+
+    #review_placename{
+        width: 230px;
+    }
+
+    input.review_boxes
+    {
+        margin-top: 20px;
+        text-align:center;
+        -webkit-appearance: none;
+        background: #f5f5f5;
+        padding: 0.80em;
+        -moz-transition: background-color 0.35s ease-in-out;
+        -webkit-transition: background-color 0.35s ease-in-out;
+        -o-transition: background-color 0.35s ease-in-out;
+        -ms-transition: background-color 0.35s ease-in-out;
+        transition: background-color 0.35s ease-in-out;
+    }
+
+    input.review_boxes:focus
+    {
+        background: #f2f2f2;
+    }
+
+</style>
 
 
 
@@ -14,6 +76,11 @@
     $(document).ready(function(){
         $("#infoToggler").click(function() {
             $(this).find('img').toggle();
+            var hiddenField = $('#liked_dish'),
+            val = hiddenField.val();
+            hiddenField.val(val === "false" ? "true" : "false");
+            $('#disliked_label').text($('#disliked_label').text() == "Liked" ? "Disliked" : "Liked");
+            console.log("new value: " + hiddenField.val());
         });
     });
 </script>
