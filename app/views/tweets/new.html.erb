@@ -8,7 +8,7 @@
      @button_text = "Post Review"
      @should_login = false
    else
-     @placeholder_text = "sign in OR be anonymous"
+     @placeholder_text = "Please Sign In --OR--- Be Anonymous"
      @button_text = "Login"
      @should_login = true
   end
@@ -107,7 +107,7 @@
     }
     else
     {
-        $('#tweet_body').fadeIn(5000);
+        $('#tweet_body').fadeIn(10000);
 
     }
 
@@ -137,7 +137,7 @@
             $('#split_review').hide();
             $('#fulltext_review').show();
             $('#its_anonymous').val('false');
-            document.getElementById("tweet_body").placeholder = "sign in OR be anonymous";
+            document.getElementById("tweet_body").placeholder = "Please Sign In --OR--- Be Anonymous";
             document.getElementById("tweet_or_login").value = "Login";
             document['post-form'].action = "/auth/twitter";
         }

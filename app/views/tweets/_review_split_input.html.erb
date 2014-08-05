@@ -1,15 +1,15 @@
 <input type="hidden" name="splitreview[its_anonymous]" id="its_anonymous" value="false">
 <div id="infoToggler">
-  <img src="/assets/liked.png"  width="25px" height="25px"/>
-  <img src="/assets/disliked.jpg"  width="25px" height="25px" style="display:none"/>
-  <label class="label-for-checkbox" id="disliked_label" style="margin-left: 4px; display: inline;">Liked</label>
+  <img src="/assets/liked_new.png"  width="45px" height="45px"/>
+  <img src="/assets/disliked_new.png"  width="45px" height="45px" style="display:none"/>
+  <!--<label class="label-for-checkbox" id="disliked_label" style="margin-left: 4px; display: inline;">Liked</label>-->
   <input type="hidden" name="splitreview[liked_dish]" id="liked_dish" value="true">
 </div>
-<input autocomplete="off" class="review_boxes" id="review_dishname" name="splitreview[review_dishname]" placeholder="Dish Name" type="text" />
-<input autocomplete="off" class="review_boxes" id="review_placename" name="splitreview[review_placename]" placeholder="Place Name" type="text" />
+<input autocomplete="off" class="review_boxes" id="review_dishname" name="splitreview[review_dishname]" placeholder="Type Dish Name" type="text" />
+<input autocomplete="off" class="review_boxes" id="review_placename" name="splitreview[review_placename]" placeholder="Restaurant" type="text" />
 
-<select name="splitreview[city]">
-  <option value="Pune" selected="selected">Select City</option>
+<select name="splitreview[city]" id="review_city">
+  <option value="Pune" selected="selected">City</option>
   <option value="Pune">Pune</option>
   <option value="Mumbai">Bombay</option>
 </select>
@@ -65,6 +65,25 @@
     input.review_boxes:focus
     {
         background: #f2f2f2;
+    }
+
+    @media (max-width: 600px) {
+        #review_dishname{
+            width: 195px;
+        }
+
+        #review_city{
+            width: 290px;
+        }
+
+        #review_thoughts{
+            width: 270px;
+        }
+
+        #review_placename{
+            width: 270px;
+        }
+
     }
 
 </style>
