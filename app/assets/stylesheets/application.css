@@ -95,7 +95,7 @@ margin-left: 20%;
 .stay-connected-form{
     text-align: left;
     margin-left: 3%;
-    margin-top: 7%;
+    margin-top: 10%;
 }
 .connect-text{
     margin-left: 5%;
@@ -143,6 +143,10 @@ margin-left: 20%;
         display: none;
     }
     .twitter-timeline{
+        display: none;
+    }
+
+    #twitter-box-vanish{
         display: none;
     }
 

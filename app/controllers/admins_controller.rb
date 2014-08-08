@@ -2,6 +2,7 @@ class AdminsController < ApplicationController
   before_filter :authenticate_user!
 
  def hit_impressions
+   Impression.destroy_all() if params[:commit].present? and params[:commit] == "CLEAR ALL"
    @unique_impression_count = Impression.count('session_hash', :distinct => true)
    @impressions = Impression.order('created_at DESC').page(params[:page])
  end
