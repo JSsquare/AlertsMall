@@ -219,16 +219,24 @@ form ul.actions
   width: 370px;
 }
 
+.social-buttons{
+  margin-left: 50% !important;
+  left: -185px;
+  position: relative;
+}
+
+
+
+
 @media (max-width: 960px) {
   input.text,
   select,
   textarea
   {
-    width: 100%;
+    width: 90%;
     height: 40px;
     padding: 0.90em;
   }
-
   .page-header-new
   {
     width: 100%;
