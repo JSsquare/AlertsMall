@@ -15,7 +15,6 @@
 /* Sticky footer styles
 -------------------------------------------------- */
 
-
 /* Wrapper for page content to push down footer */
 #wrap {
     min-height: 100%;
@@ -27,8 +26,7 @@
 
 .twitter-timeline{
     float: right;
-    margin-right: 0.5em;
-    width: 30%;
+    margin-right: 2em;
     height: 95%;
 }
 
@@ -45,7 +43,8 @@
 }
 
 .footer-container{
-margin-left: 20%;
+
+
 }
 
 #footer {
@@ -117,6 +116,24 @@ margin-left: 20%;
 .facebook:hover { background: url(/assets/facebooka.png) }
 .twitter { background: url(/assets/twittera.png) }
 .twitter:hover { background: url('/assets/twittera.png') }
+
+*::-webkit-input-placeholder {
+    color: #698338;
+}
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: #698338;
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: #a9a9a9;
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #698338;
+}
+
+iframe[id^='twitter-widget-1']{ width: 35% !important;}
 
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 960px) {

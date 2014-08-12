@@ -9,6 +9,7 @@
         <th>Content</th>
         <th>Post By?</th>
         <th>Publish</th>
+        <th>Delete Review</th>
       </tr>
       <% count = ((params[:page] || 1).to_i - 1) * 10  %>
       <% @tweets.each do |tweet| %>
@@ -18,11 +19,18 @@
             <td><%= tweet.body %></td>
             <td><%= tweet.johndoe? ? "JohnDoe" : tweet.username %></td>
             <%= t.hidden_field :tweet_id, :value => tweet.id%>
-            <td><%= t.submit "Publish", :class=> 'publish-button' unless tweet.posted? %><td>
-
+            <td><%= t.submit "Publish", :class=> 'publish-button' unless tweet.posted? %></td>
+          <% end %>
+            <%  unless tweet.posted? %>
+            <form class="form-inline" action="admins/block" data-remote="true" id="remove_review" method="post">
+              <input type="hidden" name="tweetid_to_remove" id="tweet_id" value=<%= tweet.id %>>
+              <td><input style="color: #8b0000;" class="btn remove-button" id="remove_review_button" name="remove_review_button" type="submit" value="Remove!" /></td>
+            <%else%>
+               <td> </td>
+            <%end%>
+            </form>
           </tr>
           <% count += 1 %>
-      <% end %>
       <% end %>
     </table>
 
@@ -32,8 +40,13 @@
 
 <script>
 
+    $("#remove_review_button").click(function () {
+        setTimeout(function () { location.reload(1); }, 400);
+    });
+
+
     $(".publish-button").click(function () {
-        location.reload();
+        setTimeout(function () { location.reload(1); }, 400);
     });
 
 </script>

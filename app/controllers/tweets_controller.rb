@@ -112,6 +112,11 @@ class TweetsController < ApplicationController
     end
   end
 
+  def destroy
+    redirect_to new_tweet_path, :flash => { :success => "Destroyed!!" }
+  end
+
+
 
 
 #VALIDATION METHODS CAN BE SHIFTED TO MODEL. LEARN HOW

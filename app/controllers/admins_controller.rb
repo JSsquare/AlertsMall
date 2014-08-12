@@ -12,6 +12,10 @@ class AdminsController < ApplicationController
   end
 
   def block
+    if params[:tweetid_to_remove].present?
+      Tweet.find(params[:tweetid_to_remove]).destroy
+    end
+
     if params[:tableid_to_unblock].present?
       BlockedUsers.find(params[:tableid_to_unblock]).destroy
     else
