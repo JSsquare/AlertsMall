@@ -42,15 +42,21 @@
               <!--<a href="https://facebook.com/aFoodie.Me" target="_blank"><%= image_tag("fb_logo_blue.png", class: "menu_icon") %></a>-->
               <!--<a href="https://twitter.com/PuneFoodAlerts/status/419190747238117376/photo/1" target="_blank"><%= image_tag("Twitter_logo_blue.png", class: "menu_icon") %></a>-->
           </div>
-          <div class="container nav-collapse">
-            <ul class="nav">
-              <% if user_signed_in? %>
-              <li>   <%= link_to "User Reviews", admin_path, :class => 'navbar-link'  %></li>
-              <li>   <%= link_to "User Impressions", impressions_path, :class => 'navbar-link'  %></li>
-              <li>   <%= link_to "Blocked Users", banned_path, :class => 'navbar-link'  %></li>
-              <%end%>
-            </ul>
-          </div><!--/.nav-collapse -->
+
+          <% if user_signed_in? %>
+           <ul class="nav nav-tabs" role="tablist">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Admin Options <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li>   <%= link_to "User Reviews", admin_path, :class => 'navbar-link'  %></li>
+                <li>   <%= link_to "User Impressions", impressions_path, :class => 'navbar-link'  %></li>
+                <li>   <%= link_to "Blocked Users", banned_path, :class => 'navbar-link'  %></li>
+              </ul>
+            </li>
+           </ul>
+          <%end%>
         </div>
       </div>
     </div>

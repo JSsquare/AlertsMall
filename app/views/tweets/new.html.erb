@@ -16,7 +16,6 @@
 
 <div class="page-header-new">
   <%= image_tag("pageheader_morningmirror.jpg" ) %>
-
 </div>
 
 <%= form_for @tweet, :html => { :name => 'post-form', :class => 'form-horizontal' } do |f| %>
@@ -33,7 +32,7 @@
           <%if request.env["omniauth.auth"].nil? %>
               <%if @username.present? %>
                   <input type="hidden" id="tweet_username" name="tweet[username]" value=<%= @username%>>
-                  <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_johndoe: true), class: "anchor-style" %>
+                  <%= link_to "Logout! Dont Mention @#{@username}", new_tweet_path(not_johndoe: true), class: "anchor-style" %>
               <%else%>
                   <label class="label-for-checkbox">
                   <input id="JohnDoe" class="checkbox" type="checkbox" onclick="handleClick(this);" <%if params[:not_johndoe] %>checked="checked"<%end %>>
@@ -43,7 +42,7 @@
           <%else%>
               <% @username = request.env["omniauth.auth"]["info"]["nickname"]
                  session[:username] = @username%>
-              <%= link_to "Dont Mention @#{@username}", new_tweet_path(not_johndoe: true)%>
+              <%= link_to "Logout! Dont Mention @#{@username}", new_tweet_path(not_johndoe: true)%>
               <input type="hidden" id="tweet_username"  name="tweet[username]" value=<%= request.env["omniauth.auth"]["info"]["nickname"]%>>
           <%end%>
         </div>
@@ -74,6 +73,8 @@
     <%if request.env["omniauth.auth"].present? or session[:username].present? %>
         $('#social-buttons').hide();
         $('#tweet_or_login').show();
+        $('#split_review').show();
+        $('#fulltext_review').hide();
     <%else%>
         $('#social-buttons').show();
         $('#tweet_or_login').hide();
@@ -81,6 +82,8 @@
 
 
     document['post-form'].action = "/auth/twitter";
+
+
 
     if($('#JohnDoe').is(':checked')){
         $('#tweet_body').show();
