@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:user_scores]
 
  def hit_impressions
    Impression.destroy_all() if params[:commit].present? and params[:commit] == "CLEAR ALL"
@@ -7,14 +7,29 @@ class AdminsController < ApplicationController
    @impressions = Impression.order('created_at DESC').page(params[:page])
  end
 
+  def user_scores
+    @users_score_posted = UsersScore.where("posted = 'true'")
+    @user_scores = @users_score_posted.paginate(:page => params[:page],:per_page => 10)
+  end
+
   def blocked_users
     @blocked_list = BlockedUsers.paginate(:page => params[:page],:per_page => 10)
   end
 
   def block
     if params[:tweetid_to_remove].present?
-      Tweet.find(params[:tweetid_to_remove]).destroy
-    end
+      remrev = Tweet.find(params[:tweetid_to_remove])
+      userscore = UsersScore.find_by(username: remrev.username, posted: remrev.posted)
+
+      if userscore.score == 1
+        userscore.destroy
+      else
+        userscore.score = userscore.score - 1
+        userscore.save
+      end
+      remrev.destroy
+
+    else
 
     if params[:tableid_to_unblock].present?
       BlockedUsers.find(params[:tableid_to_unblock]).destroy
@@ -32,6 +47,7 @@ class AdminsController < ApplicationController
           format.html { redirect_to banned_path, alert: "Username/Provider not entered" }
         end
       end
+    end
     end
   end
 

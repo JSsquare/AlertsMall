@@ -61,7 +61,7 @@ class TweetsController < ApplicationController
           if @tweet.save
             UserMailer.delay.someone_tweeted(@tweet.id)
             publish_tweet @post_content if want_to_publish?
-            flash_message_after_review = want_to_publish? ? "<b><u>BULLSEYE!!</u></b><br/>Your review has been posted on to feeds. Thank you" : "<b><u>FOOD COP @ WORK!!</u></b> <br/> Your review is being supervised for approval<br/> Keep watching the space. Thanks"
+            flash_message_after_review = want_to_publish? ? "<b><u>BULLSEYE!!</u></b><br/>Your review has been posted on to feeds. <br/> Hope you have Liked our pages. Thank you" : "<b><u>FOOD COP @ WORK!!</u></b> <br/> Your review is being supervised for approval<br/> Keep watching the space. Thanks"
             format.html { redirect_to new_tweet_path, notice: "#{flash_message_after_review}" }
             format.json { render action: 'tweets/new', status: :created, location: @tweet }
           else

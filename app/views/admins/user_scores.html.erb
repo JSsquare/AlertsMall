@@ -1,0 +1,46 @@
+<%if @user_scores.present? %>
+<h2><u>SCOREBOARD</u></h2>
+
+<div id="div-for-tweetlist"  >
+
+
+  <table class="table table-hover table-bordered">
+    <tr>
+      <th>Rank</th>
+      <th>User</th>
+      <th>User Home</th>
+      <th>Score</th>
+      <% if user_signed_in? %>
+       <th>Posted</th>
+      <%end%>
+    </tr>
+    <% count = (((params[:page] || 1).to_i - 1) * 10) + 1  %>
+    <% @user_scores.each do |userscore| %>
+            <tr <%if count.eql? 1%> class="success" <%end%>>
+              <td>
+               <b>
+                  <%=count%>
+               </b>
+              </td>
+              <td><%= userscore.username%></td>
+              <td><%= userscore.provider.capitalize %></td>
+              <td>
+               <% if count.eql? 1%>
+                <img id="scoreboard_icon" src="/assets/scoreicon.png"/>
+               <%else%>
+                <%= userscore.score %>
+               <%end%>
+              </td>
+              <% if user_signed_in? %>
+                <td><%= userscore.posted %></td>
+              <%end%>
+        </tr>
+        <% count += 1 %>
+    <% end %>
+  </table>
+
+</div>
+
+<%else%>
+    <h2>No users yet. Be the 1st!! <%= link_to "Critique", root_path, :class => 'navbar-link'  %></h2>
+<%end%>

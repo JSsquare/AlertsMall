@@ -111,6 +111,12 @@
     width: 180px;
 }
 
+#scoreboard_icon {
+    height: 20px;
+    width: 20px;
+    padding-left: 10px;
+}
+
 .social { display: inline-block; cursor: pointer; width: 32px; height: 32px; margin-right: 5px; }
 .facebook { background: url(/assets/facebooka.png) }
 .facebook:hover { background: url(/assets/facebooka.png) }

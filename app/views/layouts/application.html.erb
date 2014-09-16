@@ -31,6 +31,10 @@
             <a href="/">
              <img id="website_brand_icon" src="/assets/everyoneisafoodie.png"/>
             </a>
+            <a href="<%=user_scores_path%>">
+              <img id="scoreboard_icon" src="/assets/scoreicon.png"/>
+            </a>
+
           <div id="social_icons" style="float: right; margin-top: 8px;">
               <a href="https://facebook.com/aFoodie.Me" target="_blank">
                 <img id="fb" src="/assets/facebooka.png" onmouseover="this.src='/assets/facebook.png'" onmouseout="this.src='/assets/facebooka.png'"/>
@@ -38,9 +42,6 @@
               <a href="https://twitter.com/PuneFoodAlerts/status/419190747238117376/photo/1" target="_blank" class="social">
                 <img id="tw" src="/assets/twittera.png" onmouseover="this.src='/assets/twitter.png'" onmouseout="this.src='/assets/twittera.png'"/>
               </a>
-              <!--ALERTNATE SOCIAL IMAGE ICONS-->
-              <!--<a href="https://facebook.com/aFoodie.Me" target="_blank"><%= image_tag("fb_logo_blue.png", class: "menu_icon") %></a>-->
-              <!--<a href="https://twitter.com/PuneFoodAlerts/status/419190747238117376/photo/1" target="_blank"><%= image_tag("Twitter_logo_blue.png", class: "menu_icon") %></a>-->
           </div>
 
           <% if user_signed_in? %>
@@ -53,6 +54,7 @@
                 <li>   <%= link_to "User Reviews", admin_path, :class => 'navbar-link'  %></li>
                 <li>   <%= link_to "User Impressions", impressions_path, :class => 'navbar-link'  %></li>
                 <li>   <%= link_to "Blocked Users", banned_path, :class => 'navbar-link'  %></li>
+                <li>   <%= link_to "Users Score", user_scores_path, :class => 'navbar-link'  %></li>
               </ul>
             </li>
            </ul>
