@@ -1,14 +1,15 @@
-<%if @user_scores.present? %>
-<h2><u>SCOREBOARD</u></h2>
-
 <div id="div-for-tweetlist"  >
+<%if @user_scores.present? %>
+<p style="padding-left: 33%; font-size: 25px;" class="android-style">
+  <u>SCOREBOARD</u>
+</p>
+    </br>
 
 
   <table class="table table-hover table-bordered">
     <tr>
       <th>Rank</th>
       <th>User</th>
-      <th>User Home</th>
       <th>Score</th>
       <% if user_signed_in? %>
        <th>Posted</th>
@@ -22,8 +23,7 @@
                   <%=count%>
                </b>
               </td>
-              <td><%= userscore.username%></td>
-              <td><%= userscore.provider.capitalize %></td>
+              <td><b><%= userscore.provider == 'twitter' ? image_tag('Twitter_logo_blue.png') : "" %>@<%= userscore.username%></b></td>
               <td>
                <% if count.eql? 1%>
                 <img id="scoreboard_icon" src="/assets/scoreicon.png"/>
@@ -42,5 +42,10 @@
 </div>
 
 <%else%>
-    <h2>No users yet. Be the 1st!! <%= link_to "Critique", root_path, :class => 'navbar-link'  %></h2>
+   <div class="social-buttons span4 offset4" id="social-buttons">
+    <p class="android-style">
+      No Reviews Yet
+        <a class="btn btn-twitter btn-block" href="/auth/twitter">Sign-in to be 1st!</a>
+      </p>
+   </div>
 <%end%>

@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:index]
   impressionist actions: [:new]
+
   def index
     @tweets = Tweet.paginate(:page => params[:page],:per_page => 10)
     respond_to do |format|
@@ -29,7 +30,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-
+    after_review_text = rand(2) == 1 ? "Keep watching our feeds. Thanks!" : "Sign-in Review To Join <a href='/admins/user_scores'>SCOREBOARD</a>"
     params[:tweet][:body] = stitch_split_reviews params[:splitreview]
     session[:username] = tweet_params["username"].present? ?  tweet_params["username"] : false
 
@@ -61,7 +62,7 @@ class TweetsController < ApplicationController
           if @tweet.save
             UserMailer.delay.someone_tweeted(@tweet.id)
             publish_tweet @post_content if want_to_publish?
-            flash_message_after_review = want_to_publish? ? "<b><u>BULLSEYE!!</u></b><br/>Your review has been posted on to feeds. <br/> Hope you have Liked our pages. Thank you" : "<b><u>FOOD COP @ WORK!!</u></b> <br/> Your review is being supervised for approval<br/> Keep watching the space. Thanks"
+            flash_message_after_review = want_to_publish? ? "<b><u>BULLSEYE!!</u></b><br/>Your review has been posted on to feeds. <br/> Hope you have Liked our pages. Thank you" : "<b><u>FOOD COP @ WORK!!</u></b> <br/> Your review is being supervised for approval<br/> #{after_review_text} "
             format.html { redirect_to new_tweet_path, notice: "#{flash_message_after_review}" }
             format.json { render action: 'tweets/new', status: :created, location: @tweet }
           else

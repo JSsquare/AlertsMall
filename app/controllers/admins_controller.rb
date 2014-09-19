@@ -8,7 +8,7 @@ class AdminsController < ApplicationController
  end
 
   def user_scores
-    @users_score_posted = UsersScore.where("posted = 'true'")
+    @users_score_posted = UsersScore.where("posted = 'true' and username <> 'JohnDoe'")
     @user_scores = @users_score_posted.paginate(:page => params[:page],:per_page => 10)
   end
 

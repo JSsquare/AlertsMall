@@ -141,6 +141,15 @@
 
 iframe[id^='twitter-widget-1']{ width: 35% !important;}
 
+.android-style {
+    font: 400 25px/1.667 helvetica,arial,sans-serif;
+    color: #698338;
+    opacity: 0.70;
+    padding-left: 30%;
+    padding-top: 5%;
+    width: 50%;
+}
+
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 960px) {
 
