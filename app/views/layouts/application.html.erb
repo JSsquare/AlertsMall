@@ -13,7 +13,15 @@
     <![endif]-->
     <script type="text/javascript" src= "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
+
+    <!-- Load jQuery from Google's CDN -->
+    <!-- Load jQuery UI CSS  -->
+
+
+
     <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <%= javascript_include_tag "jquery-1.4.2.min", "rails", "highcharts" %>
 
 
     <!-- For all other devices -->
@@ -32,7 +40,7 @@
              <img id="website_brand_icon" src="/assets/everyoneisafoodie.png"/>
             </a>
             <a href="<%=user_scores_path%>">
-              <img id="scoreboard_icon" src="/assets/scoreicon.png"/>
+              <img id="scoreboard_icon" src="/assets/review_icon.jpg"/>
             </a>
 
           <div id="social_icons" style="float: right; margin-top: 8px;">

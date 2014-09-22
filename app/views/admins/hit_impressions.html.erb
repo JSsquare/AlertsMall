@@ -1,6 +1,8 @@
 <h1>Hit Count</h1>
 <h2>Unique Users # <%= @unique_impression_count%></h2>
 
+<div id="impressions_chart" style="width: 560px; height: 300px;"></div>
+<input type="text" data-behaviour='datepicker' >
 
 <div id="div-for-tweetlist" >
   <%= will_paginate @impressions  %>
@@ -32,23 +34,29 @@
 </div>
 
 
-<script type="text/javascript">
+<script type="text/javascript" charset="utf-8">
+
+    $(function () {
+        new Highcharts.Chart({
+            chart: { renderTo: 'impressions_chart' },
+            title: { text: 'User Hits Chart' },
+            xAxis: { type: 'datetime' },
+            yAxis: {
+                title: { text: 'Dollars'}
+            },
+            series: [{
+                data: [1, 2, 5, 7, 3]
+            }]
+        });
+    });
+
 
     $(".clear-button").click(function () {
         location.reload();
     });
 
     $(document).ready(function(){
-
-        $("a[class=tooltip]").hover(
-                function () {
-                    var position = $(this).position();
-                    $(this).children("div.content").addClass('tip').css('left',position.left);
-                },
-                function () {
-                    $(this).children("div.content").removeClass('tip');
-                }
-        );
+       $('[data-behaviour~=datepicker]').datepicker();
     });
 
 </script>

@@ -1,35 +1,37 @@
 <div id="div-for-tweetlist"  >
 <%if @user_scores.present? %>
-<p style="padding-left: 33%; font-size: 25px;" class="android-style">
-  <u>SCOREBOARD</u>
+<p style="padding-left: 35%; font-size: 22px;" class="android-style">
+  <u>LEADERBOARD</u>
 </p>
     </br>
 
-
+  <% count = (((params[:page] || 1).to_i - 1) * 10) + 1  %>
   <table class="table table-hover table-bordered">
     <tr>
-      <th>Rank</th>
-      <th>User</th>
-      <th>Score</th>
+      <th>SCORE</th>
+      <th>USER</th>
+      <th>RANK</th>
       <% if user_signed_in? %>
-       <th>Posted</th>
+       <th>POSTED</th>
       <%end%>
     </tr>
-    <% count = (((params[:page] || 1).to_i - 1) * 10) + 1  %>
     <% @user_scores.each do |userscore| %>
-            <tr <%if count.eql? 1%> class="success" <%end%>>
+        <%critiquking_user = count == 1 ? true : false%>
+            <tr <%if critiquking_user %> class="success" <%end%>>
               <td>
-               <b>
-                  <%=count%>
-               </b>
+                <% if count.eql? 1%>
+                    <img id="scoreboard_icon" src="/assets/CritiquKing_icon.jpg"/> <b>( CritiquKing! )</b>
+                <%else%>
+                    <%= userscore.score %>
+                <%end%>
               </td>
-              <td><b><%= userscore.provider == 'twitter' ? image_tag('Twitter_logo_blue.png') : "" %>@<%= userscore.username%></b></td>
               <td>
-               <% if count.eql? 1%>
-                <img id="scoreboard_icon" src="/assets/scoreicon.png"/>
-               <%else%>
-                <%= userscore.score %>
-               <%end%>
+                <b><%= userscore.provider == 'twitter' ? image_tag('Twitter_logo_blue.png') : "" %>@<%= userscore.username%></b>
+              </td>
+              <td>
+                <b>
+                  <%=count%>
+                </b>
               </td>
               <% if user_signed_in? %>
                 <td><%= userscore.posted %></td>
