@@ -6,7 +6,7 @@
     </br>
 
   <% count = (((params[:page] || 1).to_i - 1) * 10) + 1  %>
-  <table class="table table-hover table-bordered">
+  <table class="table table-hover table-bordered" style="color: #698338">
     <tr>
       <th>SCORE</th>
       <th>USER</th>
@@ -19,14 +19,16 @@
         <%critiquking_user = count == 1 ? true : false%>
             <tr <%if critiquking_user %> class="success" <%end%>>
               <td>
+                <b>
                 <% if count.eql? 1%>
-                    <img id="scoreboard_icon" src="/assets/CritiquKing_icon.jpg"/> <b>( CritiquKing! )</b>
+                    <img id="scoreboard_icon" style="width: 50px;height: 50px;" src="/assets/CritiquKing_icon.png"/> ( CritiquKing! )
                 <%else%>
                     <%= userscore.score %>
                 <%end%>
+                </b>
               </td>
               <td>
-                <b><%= userscore.provider == 'twitter' ? image_tag('Twitter_logo_blue.png') : "" %>@<%= userscore.username%></b>
+                <b><%= userscore.provider == 'twitter' ? image_tag('Twitter_logo_blue.png', size: "25x25") : "" %>@<%= userscore.username%></b>
               </td>
               <td>
                 <b>

@@ -30,7 +30,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    after_review_text = rand(2) == 1 ? "Keep watching our feeds. Thanks!" : "Sign-in Review To Join <a href='/admins/user_scores'>SCOREBOARD</a>"
+    foodcops_message = rand(2) == 1 ? "Keep watching our <a href='https://twitter.com/PuneFoodAlerts' target='_blank'>feeds</a>. Thanks!" : "Sign-in & review To Join the <a href='/admins/user_scores' target='_blank'>LEADERBOARD</a>"
     params[:tweet][:body] = stitch_split_reviews params[:splitreview]
     session[:username] = tweet_params["username"].present? ?  tweet_params["username"] : false
 
@@ -51,7 +51,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(params[:tweet])
     respond_to do |format|
       if blocked_user? tweet_params["username"]
-        format.html { redirect_to new_tweet_path , alert: "<b><u>YOU ARE BLOCKED AHOLE!!</u></b><br/>Contact me to know the reason." }
+        format.html { redirect_to new_tweet_path , alert: "<b><u>YOU ARE BLOCKED ASSHOLE!!</u></b><br/>Contact me to know the reason." }
       else
         unless  validate_tweet_body? @post_content
          format.html { redirect_to new_tweet_path , alert: "<b>IM SORRY!! YOUR PLATE IS FULL</b><br/>Not more than 140 characters." }
@@ -62,7 +62,7 @@ class TweetsController < ApplicationController
           if @tweet.save
             UserMailer.delay.someone_tweeted(@tweet.id)
             publish_tweet @post_content if want_to_publish?
-            flash_message_after_review = want_to_publish? ? "<b><u>BULLSEYE!!</u></b><br/>Your review has been posted on to feeds. <br/> Hope you have Liked our pages. Thank you" : "<b><u>FOOD COP @ WORK!!</u></b> <br/> Your review is being supervised for approval<br/> #{after_review_text} "
+            flash_message_after_review = want_to_publish? ? "<b><u>BULLSEYE!!</u></b><br/>Your review has been posted to <a href='https://twitter.com/PuneFoodAlerts' target='_blank'>feeds</a>. <br/> Hope you have Liked our pages. Thank you" : "<b><u>FOOD COP @ WORK!!</u></b> <br/> Your review is being supervised for approval<br/> #{foodcops_message} "
             format.html { redirect_to new_tweet_path, notice: "#{flash_message_after_review}" }
             format.json { render action: 'tweets/new', status: :created, location: @tweet }
           else
