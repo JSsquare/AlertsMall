@@ -21,7 +21,7 @@
               <td>
                 <b>
                 <% if count.eql? 1%>
-                    <img id="scoreboard_icon" style="width: 50px;height: 50px;" src="/assets/CritiquKing_icon.png"/> ( CritiquKing! )
+                    <img id="scoreboard_icon" style="margin-left: 30px; width: 64px;height: 64px;" src="/assets/CritiquKing_icon_v2.png"/>
                 <%else%>
                     <%= userscore.score %>
                 <%end%>
@@ -32,7 +32,7 @@
               </td>
               <td>
                 <b>
-                  <%=count%>
+                  #<%=count%>
                 </b>
               </td>
               <% if user_signed_in? %>
