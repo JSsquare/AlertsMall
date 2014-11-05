@@ -125,11 +125,11 @@
 .twitter:hover { background: url('/assets/twittera.png') }
 
 *::-webkit-input-placeholder {
-    color: #698338;
+    color: #89AE44;
 }
 *:-moz-placeholder {
     /* FF 4-18 */
-    color: #698338;
+    color: #89AE44;
 }
 *::-moz-placeholder {
     /* FF 19+ */
@@ -137,19 +137,19 @@
 }
 *:-ms-input-placeholder {
     /* IE 10+ */
-    color: #698338;
+    color: #89AE44;
 }
 
 iframe[id^='twitter-widget-1']{ width: 35% !important;}
 
 .android-style {
     font: 400 25px/1.667 helvetica,arial,sans-serif;
-    color: #698338;
-    opacity: 0.70;
-    padding-left: 30%;
+    color: #89AE44;
+    opacity: 0.80;
     padding-top: 5%;
-    width: 50%;
+
 }
+
 
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 960px) {

@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   impressionist actions: [:new]
 
   def index
-    @tweets = Tweet.paginate(:page => params[:page],:per_page => 10)
+    @tweets = Tweet.page(params[:page]).order('created_at DESC')
     respond_to do |format|
       format.html
       format.xml { render :xml => @tweet }
@@ -54,15 +54,15 @@ class TweetsController < ApplicationController
         format.html { redirect_to new_tweet_path , alert: "<b><u>YOU ARE BLOCKED ASSHOLE!!</u></b><br/>Contact me to know the reason." }
       else
         unless  validate_tweet_body? @post_content
-         format.html { redirect_to new_tweet_path , alert: "<b>IM SORRY!! YOUR PLATE IS FULL</b><br/>Not more than 140 characters." }
+         format.html { redirect_to new_tweet_path , alert: "<b>IM SORRY!! YOUR PLATE IS FULL</b><br/>Keep your review short & sweet" }
         else
           unless validate_username_count? tweet_params["username"]
-            format.html { redirect_to new_tweet_path , alert: "<b><u>SORRY!! NO 2nd HELPING</u></b><br/>You can review as Anonymous or come back tomorrow" }
+            format.html { redirect_to new_tweet_path , alert: "<b><u>SORRY!! NO 2nd HELPING</u></b><br/>Please review as 'Anonymous' or come back tomorrow" }
         else
           if @tweet.save
             UserMailer.delay.someone_tweeted(@tweet.id)
             publish_tweet @post_content if want_to_publish?
-            flash_message_after_review = want_to_publish? ? "<b><u>BULLSEYE!!</u></b><br/>Your review has been posted to <a href='https://twitter.com/PuneFoodAlerts' target='_blank'>feeds</a>. <br/> Hope you have Liked our pages. Thank you" : "<b><u>FOOD COP @ WORK!!</u></b> <br/> Your review is being supervised for approval<br/> #{foodcops_message} "
+            flash_message_after_review = want_to_publish? ? "<b><u>BULLSEYE!!</u></b><br/>Your review has been posted to the <a href='https://twitter.com/PuneFoodAlerts' target='_blank'>Feeds</a>. <br/> Hope you've already Liked our pages. Thank you" : "<b><u>FOOD COP @ WORK!!</u></b> <br/> Your review is being supervised. Please wait for approval<br/> #{foodcops_message} "
             format.html { redirect_to new_tweet_path, notice: "#{flash_message_after_review}" }
             format.json { render action: 'tweets/new', status: :created, location: @tweet }
           else
@@ -76,8 +76,19 @@ class TweetsController < ApplicationController
   end
 
   def formulate_post_content username, post_body
-    @via_mention = username == 'JohnDoe' ? '(via www.aFoodie.Me)' : "via(@#{username})"
-    return @post_content_formulated = "#{post_body} #{@via_mention}"
+    @length_of_via_text = 6 #via(@)
+    @skeleton_length = post_body.length + username.length + @length_of_via_text
+
+    case @skeleton_length
+      when (133..140)
+        @post_script = username == 'JohnDoe' ? '(via www.aFoodie.Me)' : "via(@#{username})"
+      when (100..133)
+        @post_script = username == 'JohnDoe' ? '(via www.aFoodie.Me)' : "via(#aFoodieMe @#{username})"
+      when (0..100)
+        @post_script = username == 'JohnDoe' ? '(via www.aFoodie.Me)' : "via(@#{username}) #EveryoneIsAFoodie"
+    end
+
+    return @post_content_formulated = "#{post_body} #{@post_script}"
   end
 
 

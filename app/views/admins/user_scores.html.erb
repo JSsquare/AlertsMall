@@ -1,6 +1,6 @@
 <div id="div-for-tweetlist"  >
 <%if @user_scores.present? %>
-<p style="padding-left: 35%; font-size: 22px;" class="android-style">
+<p style="text-align:center;font-size: 21px; font-weight: bold;" class="android-style">
   <u>LEADERBOARD</u>
 </p>
     </br>
@@ -8,32 +8,30 @@
   <% count = (((params[:page] || 1).to_i - 1) * 10) + 1  %>
   <table class="table table-hover table-bordered" style="color: #698338">
     <tr>
-      <th>SCORE</th>
-      <th>USER</th>
-      <th>RANK</th>
+      <th style="text-align: center;">SCORE</th>
+      <th style="text-align: center;">USER</th>
+      <th style="text-align: center;">RANK</th>
       <% if user_signed_in? %>
-       <th>POSTED</th>
+       <th style="text-align: center;">POSTED</th>
       <%end%>
     </tr>
     <% @user_scores.each do |userscore| %>
         <%critiquking_user = count == 1 ? true : false%>
             <tr <%if critiquking_user %> class="success" <%end%>>
-              <td>
+              <td style="text-align: center;">
                 <b>
                 <% if count.eql? 1%>
-                    <img id="scoreboard_icon" style="margin-left: 30px; width: 64px;height: 64px;" src="/assets/CritiquKing_icon_v2.png"/>
+                    <img id="scoreboard_icon" style="width: 64px;height: 64px;" src="/assets/CritiquKing_icon_v2.png"/>
                 <%else%>
                     <%= userscore.score %>
                 <%end%>
                 </b>
               </td>
-              <td>
-                <b><%= userscore.provider == 'twitter' ? image_tag('Twitter_logo_blue.png', size: "25x25") : "" %>@<%= userscore.username%></b>
+              <td style="text-align: center; vertical-align:middle;">
+                <%= userscore.provider == 'twitter' ? image_tag('Twitter_logo_blue.png', size: "20x20") : "" %><b><%= userscore.username%></b>
               </td>
-              <td>
-                <b>
-                  #<%=count%>
-                </b>
+              <td style="text-align: center; vertical-align:middle;">
+                  #<p style="font-size:medium; display: inline;"><b><%=count%></b></p>
               </td>
               <% if user_signed_in? %>
                 <td><%= userscore.posted %></td>
@@ -53,3 +51,5 @@
       </p>
    </div>
 <%end%>
+
+
