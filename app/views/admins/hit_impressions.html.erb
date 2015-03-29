@@ -1,12 +1,18 @@
 <h1>Hit Count</h1>
 <h2>Unique Users # <%= @unique_impression_count%></h2>
 
-<div id="impressions_chart" style="width: 560px; height: 300px;"></div>
-<input type="text" data-behaviour='datepicker' >
+<div id="impressions_chart" style="display: none; width: 560px; height: 300px;"></div>
+
 
 <div id="div-for-tweetlist" >
   <%= will_paginate @impressions  %>
   <% count = ((params[:page] || 1).to_i - 1) * 10  %>
+
+  <form class="form-inline" action="hit_impressions" data-remote="true" id="clear_impressions_post" method="get">
+    <input name="clear_from" type="text" data-behaviour='datepicker' >
+    <input style="color: #009998;" class="btn clear-button" id="clear_from" name="commit" type="submit" value="CLEAR FROM" />
+  </form>
+
 
   <form class="form-inline" action="hit_impressions" data-remote="true" id="clear_impressions_post" method="get">
     <input style="color: #009998;" class="btn clear-button" id="clearing_impressions" name="commit" type="submit" value="CLEAR ALL" />
