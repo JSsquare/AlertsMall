@@ -1,14 +1,14 @@
 <input type="hidden" name="splitreview[its_anonymous]" id="its_anonymous" value="false">
 <div id="infoToggler">
-  <img src="/assets/liked_new.png"  width="45px" height="45px" style="margin-top: 15px;"/>
-  <img src="/assets/disliked_new.png"  width="45px" height="45px" style="display:none; margin-top: 20px;"/>
+  <img src="/assets/i_Liked_Button.png"  width="50px" height="45px" style="margin-top: 15px;"/>
+  <img src="/assets/i_Dislike_Button.png"  width="50px" height="45px" style="display:none; margin-top: 20px;"/>
   <!--<label class="label-for-checkbox" id="disliked_label" style="margin-left: 4px; display: inline;">Liked</label>-->
   <input type="hidden" name="splitreview[liked_dish]" id="liked_dish" value="true">
 </div>
 <input autocomplete="off" class="review_boxes" id="review_dishname" name="splitreview[review_dishname]" placeholder="Dish  Eg:Pizza" type="text" />
 <input autocomplete="off" class="review_boxes" id="review_placename" name="splitreview[review_placename]" placeholder="Restaurant  Eg:BBQ Nation" type="text" />
 
-<select name="splitreview[city]" id="review_city">
+<select name="splitreview[city]" id="review_city" class="form-control">
   <option value="Pune" selected="selected">Choose City</option>
   <option value="Pune">#Pune</option>
   <option value="Mumbai">#Bombay</option>
@@ -33,7 +33,7 @@
 
     #infoToggler {
         display: inline;
-        margin-right: 20px;
+        margin-right: 12px;
     }
 
     #review_dishname{
