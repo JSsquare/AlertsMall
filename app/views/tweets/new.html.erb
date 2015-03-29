@@ -32,7 +32,7 @@
           <%if request.env["omniauth.auth"].nil? %>
               <%if @username.present? %>
                   <input type="hidden" id="tweet_username" name="tweet[username]" value=<%= @username%>>
-                  <%= link_to "Logout! Dont Mention @#{@username}", new_tweet_path(not_johndoe: true), class: "anchor-style" %>
+                  <%= link_to "No, Dont Mention @#{@username}. Log Me Out!!", new_tweet_path(not_johndoe: true), class: "anchor-style" %>
               <%else%>
                   <label class="label-for-checkbox">
                   <input id="JohnDoe" class="checkbox" type="checkbox" onclick="handleClick(this);" <%if params[:not_johndoe] %>checked="checked"<%end %>>

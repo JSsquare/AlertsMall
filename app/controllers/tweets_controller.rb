@@ -30,7 +30,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    foodcops_message = rand(2) == 1 ? "Keep watching our <a href='https://twitter.com/PuneFoodAlerts' target='_blank'>feeds</a>. Thanks!" : "Sign-in & review To Join the <a href='/admins/user_scores' target='_blank'>LEADERBOARD</a>"
+    foodcops_message = rand(2) == 1 ? "Keep watching our <a href='https://twitter.com/PuneFoodAlerts' target='_blank'>feeds</a>. Thanks!" : "Sign-in & Post-Review To Join the <a href='/admins/user_scores' target='_blank'>LEADERBOARD</a>"
     params[:tweet][:body] = stitch_split_reviews params[:splitreview]
     session[:username] = tweet_params["username"].present? ?  tweet_params["username"] : false
 
