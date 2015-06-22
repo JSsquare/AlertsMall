@@ -18,6 +18,9 @@
     <input style="color: #009998;" class="btn clear-button" id="clearing_impressions" name="commit" type="submit" value="CLEAR ALL" />
    </form>
 
+
+
+
   <table class="table table-hover">
     <tr>
       <th>SL #</th>
@@ -40,8 +43,8 @@
 </div>
 
 
-<script type="text/javascript" charset="utf-8">
 
+<script type="text/javascript" charset="utf-8">
     $(function () {
         new Highcharts.Chart({
             chart: { renderTo: 'impressions_chart' },
@@ -64,5 +67,7 @@
     $(document).ready(function(){
        $('[data-behaviour~=datepicker]').datepicker();
     });
+
+
 
 </script>

@@ -8,7 +8,7 @@
      @button_text = "POST REVIEW"
      @should_login = false
    else
-     @placeholder_text = "Please Sign In --OR--- Be Anonymous"
+     @placeholder_text = "To Review- Please Sign In  OR  Be Anonymous"
      @button_text = "Login"
      @should_login = true
   end
@@ -56,9 +56,6 @@
             <%= f.submit "#{@button_text}", :class => 'button', :id =>"tweet_or_login" %>
 
 
-
-
-
       </div>
 
     </div>
@@ -66,6 +63,27 @@
 
 <% end %>
 
+
+
+<div id="myModal" class="modal-dialog modal fade">
+  <div class="modal-content">
+    <div class="modal-header">
+      <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+      <h4 class="modal-title"><%= critiquking_reckoner %></h4>
+    </div>
+    <div class="modal-body">
+      <p class="text-warning">Congrats You Earned The CritiquKing Badge </p>
+    </div>
+    <div class="modal-footer">
+      <form data-remote="true" action="/tweets/critiquking_reckoner" class="form-horizontal" id="new_connection" method="post" name="connect-form">
+        <%= hidden_field_tag :badge_earned, true-%>
+        <button id="woohoo" class="btn connect-button btn-success disabled" type="submit">Woohoo!</button>
+        <!--<input class="btn btn-success" type="submit" value="Woohoo!" id="submit">-->
+      </form>
+
+    </div>
+  </div>
+</div>
 
 
 
@@ -114,9 +132,21 @@
 
     }
 
-    $(document).ready(function(){
 
-       if(document.getElementById("JohnDoe").checked == false){
+    <% if request.env["omniauth.auth"].present? or session[:username].present? %>
+    <% if critiquking_reckoner%>
+        $("#myModal").modal('show');
+    <%end%>
+    <%end%>
+
+
+
+    $(document).ready(function(){
+        $("#woohoo").click(function(){
+            $("#myModal").modal('hide'); //hide popup
+        });
+
+        if(document.getElementById("JohnDoe").checked == false){
            document['post-form'].action = "/auth/twitter";
        }
 
@@ -140,7 +170,7 @@
             $('#split_review').hide();
             $('#fulltext_review').show();
             $('#its_anonymous').val('false');
-            document.getElementById("tweet_body").placeholder = "Please Sign In --OR--- Be Anonymous";
+            document.getElementById("tweet_body").placeholder = "To Review- Please Sign In  OR  Be Anonymous";
             document.getElementById("tweet_or_login").value = "Login";
             document['post-form'].action = "/auth/twitter";
         }

@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:index]
   impressionist actions: [:new]
+  helper_method :critiquking_reckoner
 
   def index
     @tweets = Tweet.page(params[:page]).order('created_at DESC')
@@ -132,6 +133,37 @@ class TweetsController < ApplicationController
 
   def destroy
     redirect_to new_tweet_path, :flash => { :success => "Destroyed!!" }
+  end
+
+  def critiquking_reckoner
+    if params[:badge_earned].present?
+      UsersScore.update_all(:critiquking => false)
+      ck = UsersScore.find_by_username(session[:username])
+      ck.critiquking = true
+      ck.save
+      render nothing: true
+    end
+    $TOPSCORE_WALL = 2
+    if request.env['omniauth.auth'].present? or session[:username].present?
+     session[:username] = request.env['omniauth.auth'].present? ? request.env['omniauth.auth']['info']['nickname'] : session[:username]
+     @current_user_score = UsersScore.where(username: session[:username]).limit(1).pluck(:score)
+     @current_top_score = UsersScore.where("provider <> 'JohnDoe' and critiquking = true").maximum(:score)
+
+     if @current_user_score.present? and @current_top_score.present?
+       if @current_user_score[0] > $TOPSCORE_WALL and @current_user_score[0] > @current_top_score and not UsersScore.where(username: session[:username]).exists?(:critiquking => true)
+          true
+       else
+         @current_user_score[0] == @current_top_score + 1 ? true : false
+       end
+     elsif @current_user_score.present? and @current_user_score[0] == $TOPSCORE_WALL + 1
+        true
+     else
+       false
+     end
+    else
+      false
+    end
+
   end
 
 
