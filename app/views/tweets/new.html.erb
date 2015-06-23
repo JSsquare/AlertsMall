@@ -41,7 +41,8 @@
               <%end%>
           <%else%>
               <% @username = request.env["omniauth.auth"]["info"]["nickname"]
-                 session[:username] = @username%>
+                 session[:username] = @username
+                 @name = request.env["omniauth.auth"]["info"]["name"]%>
               <%= link_to "Logout! Dont Mention @#{@username}", new_tweet_path(not_johndoe: true)%>
               <input type="hidden" id="tweet_username"  name="tweet[username]" value=<%= request.env["omniauth.auth"]["info"]["nickname"]%>>
           <%end%>
@@ -67,12 +68,15 @@
 
 <div id="myModal" class="modal-dialog modal fade">
   <div class="modal-content">
-    <div class="modal-header">
+    <div class="modal-header" style="text-align: center;">
       <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
-      <h4 class="modal-title"><%= critiquking_reckoner %></h4>
+      <h3 class="modal-title">Congrats!!</h3>
+      <h4>@<%=  @username %> Just Earned A Badge</h4>
+
     </div>
-    <div class="modal-body">
-      <p class="text-warning">Congrats You Earned The CritiquKing Badge </p>
+    <div class="modal-body" style="text-align: center;">
+
+      <img id="scoreboard_icon" style="width: 80px;height: 80px;" src="/assets/CritiquKing_icon_v2.png"/>
     </div>
     <div class="modal-footer">
       <form data-remote="true" action="/tweets/critiquking_reckoner" class="form-horizontal" id="new_connection" method="post" name="connect-form">
@@ -132,10 +136,13 @@
 
     }
 
-
     <% if request.env["omniauth.auth"].present? or session[:username].present? %>
     <% if critiquking_reckoner%>
-        $("#myModal").modal('show');
+    $('#myModal').modal({
+        backdrop: 'static'
+    })
+    $("#myModal").modal('show');
+
     <%end%>
     <%end%>
 
