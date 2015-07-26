@@ -159,6 +159,15 @@
 
     });
 
+    function focusStayConnected() {
+        document.getElementById("connect-textbox").focus();
+        $('html, body').animate({scrollTop:400},'slow');
+        return false;
+
+    }
+
+
+
     function handleClick(JohnDoe) {
         if(JohnDoe.checked){
             $("#tweet_body").attr('disabled',false);
