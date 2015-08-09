@@ -200,18 +200,3 @@ class TweetsController < ApplicationController
 
 
 end
-
-
-
-
-
-
-
-
-
-#FOR PUNE FOOD ALERTS
-#consumer_key = "jJm5FqTl3GJrRueIXIXOTA"
-#consumer_key_secret = "KJneLltuLLV4foKNin8SxHLcXPTDnVyvBBf9cZ2I"
-
-#access_token = "2209559442-Lm6L4QbrcTQvl7MbGKR5YAvoefp6vxO1fTlHvAz"
-#access_token_secret = "KZ5OMcCS7n2k2a07m5rQcsLJjpEjj6bZ5hZEpySvavMHF"
