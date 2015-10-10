@@ -52,4 +52,8 @@ class AdminsController < ApplicationController
     end
   end
 
+  def text
+    render "admins/text"
+  end
+
 end
