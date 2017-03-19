@@ -8,28 +8,23 @@
 <input autocomplete="off" class="review_boxes" id="review_dishname" name="splitreview[review_dishname]" placeholder="Dish  Eg:Pizza" type="text" />
 <input autocomplete="off" class="review_boxes" id="review_placename" name="splitreview[review_placename]" placeholder="Restaurant  Eg:BBQ Nation" type="text" />
 
-<select name="splitreview[city]" id="review_city" class="form-control">
-  <option value="Pune" selected="selected">Choose City</option>
-  <option value="Pune">#Pune</option>
-  <option value="Mumbai">#Bombay</option>
-</select>
+
+<div class="styled-select green rounded">
+    <select name="splitreview[city]" id="review_city">
+      <option value="Pune" selected="selected">Choose City</option>
+      <option value="Pune">#Pune</option>
+      <option value="Mumbai">#Bombay</option>
+    </select>
+</div>
+
+
+
 
 <input autocomplete="off" class="review_boxes" id="review_thoughts" name="splitreview[review_thoughts]" placeholder="Other Thoughts..." type="text" />
 
 
 <style>
 
-    select {
-        display:inline-block;
-        width:120px;
-        background-color:#f5f5f5;
-        border:none;
-        outline:none;
-        padding-top:8px;
-        margin-top:20px;
-        height:40px;
-        position:relative;
-    }
 
     #infoToggler {
         display: inline;
@@ -86,6 +81,37 @@
         }
 
     }
+
+
+
+    .styled-select {
+        display:inline-block;
+        background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 100% 0;
+
+        height: 40px;
+    }
+
+    .styled-select select {
+        background: transparent;
+        border: none;
+        height: 40px;
+        padding: 5px; /* If you add too much padding here, the options won't show in IE */
+        width: 120px;
+        -moz-appearance: none !important;
+        /*for chrome*/
+        -webkit-appearance:none;
+        appearance: none !important;
+        border: 0 !important;
+    }
+
+    .rounded {
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+    }
+
+    .green   { background-color: #89AE44; }
+    .green select   { color: #fff; }
 
 </style>
 
